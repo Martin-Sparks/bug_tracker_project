@@ -1,13 +1,13 @@
 {
-  "name": "bug_tracker_project",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server:dev": "nodemon server.js",
-    "seeds": "mongo < @db/seeds.js"
+    "seeds": "mongo < ./db/seeds.js"
   },
   "keywords": [],
   "author": "",
