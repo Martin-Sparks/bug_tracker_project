@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "BugMain",
+    name: "TicketDisplay",
     props: ["tickets"],
     data: function() {
         return {

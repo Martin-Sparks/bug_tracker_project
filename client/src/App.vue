@@ -1,11 +1,11 @@
 <template>
   <div>
-    <bug-main :tickets="tickets"></bug-main>
+    <TicketDisplay :tickets="tickets"></TicketDisplay>
   </div>
 </template>
 
 <script>
-import BugMain from "@/components/BugMain.vue";
+import TicketDisplay from "@/components/TicketDisplay.vue";
 import TicketService from "@/services/TicketService.js";
 
 export default {
@@ -27,7 +27,7 @@ export default {
     },
   },
   components: {
-    "bug-main": BugMain,
+    "TicketDisplay": TicketDisplay,
   },
 };
 </script>
