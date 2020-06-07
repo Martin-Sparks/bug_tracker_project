@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Hello World! {{ tickets }}</h1>
     <bug-main :tickets="tickets"></bug-main>
   </div>
 </template>

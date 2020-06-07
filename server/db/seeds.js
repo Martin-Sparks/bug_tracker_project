@@ -11,6 +11,28 @@ db.bugs.insertMany([
         assignedTo:"Martin",
         label:"Front End",
         priorityStatus:"Urgent"
+    },
+
+    {
+        name: "Web form not working ",
+        description:"Wont submit",
+        dateCreated:"04062020",
+        timeCreated:"2024",
+        ticketStatus:"Fixed",
+        assignedTo:"Dave",
+        label:"Front End",
+        priorityStatus:"Urgent"
+    },
+
+    {
+        name: "Web form not working ",
+        description:"Wont submit",
+        dateCreated:"04062020",
+        timeCreated:"2024",
+        ticketStatus:"Fixed",
+        assignedTo:"Dave",
+        label:"Front End",
+        priorityStatus:"Urgent"
     }
 ]);
 
