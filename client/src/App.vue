@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <TicketDisplay :tickets="tickets"></TicketDisplay>
+  <div id="app">
+    <!-- <TicketDisplay :tickets="tickets"></TicketDisplay> -->
   </div>
 </template>
 
 <script>
-import TicketDisplay from "@/components/TicketDisplay.vue";
+import CreateTicket from "@/components/CreateTicket.vue";
+import TicketList from "@/components/TicketList.vue";
+import SingleTicket from "@/components/SingleTicket.vue";
 import TicketService from "@/services/TicketService.js";
 
 export default {
-
   name: "app",
   data() {
     return {
@@ -27,7 +28,9 @@ export default {
     },
   },
   components: {
-    "TicketDisplay": TicketDisplay,
+    "create-ticket": CreateTicket,
+    "ticket-list": TicketList,
+    "single-ticket": SingleTicket,
   },
 };
 </script>
