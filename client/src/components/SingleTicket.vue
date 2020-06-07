@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Ticket name: {{ ticket }}</h2>
+    <h2>Ticket name: {{ ticket.name}}</h2>
   </div>
 </template>
 
