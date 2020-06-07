@@ -2,22 +2,23 @@
   <div>
     <h2>List all Bug Tickets</h2>
     <div id="tickets-wrapper">
+      <!-- <p>{{ tickets }}</p> -->
       <single-ticket
         v-for="(ticket, index) in tickets"
         :key="index"
-        :ticket="ticket"
+        :ticket="tickets"
       />
     </div>
   </div>
 </template>
 
 <script>
-import CreateTicket from "@/components/CreateTicket";
+// import CreateTicket from "@/components/CreateTicket";
 import SingleTicket from "@/components/SingleTicket";
 
 export default {
   name: "TicketList",
-  prop: ["tickets"],
+  props: ["tickets"],
   components: {
     "single-ticket": SingleTicket,
   },
