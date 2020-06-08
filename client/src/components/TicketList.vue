@@ -12,7 +12,6 @@
 </template>
 
 <script>
-// import CreateTicket from "@/components/CreateTicket";
 import SingleTicket from "@/components/SingleTicket";
 
 export default {

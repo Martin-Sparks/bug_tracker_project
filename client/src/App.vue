@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-
+    <create-ticket/>
     <!-- <p>{{tickets}}</p> -->
+
     <ticket-list :tickets="tickets" />
   </div>
 </template>
@@ -10,6 +11,7 @@
 import CreateTicket from "@/components/CreateTicket.vue";
 import TicketList from "@/components/TicketList.vue";
 import TicketService from "@/services/TicketService.js";
+import { eventBus } from '@/main';
 
 export default {
   name: "app",
@@ -26,6 +28,10 @@ export default {
 
   mounted() {
     this.fetchTickets();
+  
+    eventBus.$on("submit-ticket", (tickts) =>{
+      
+    })
   },
 
   methods: {
