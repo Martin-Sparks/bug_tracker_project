@@ -61,6 +61,8 @@ export default {
 
       handleSubmit(){
         eventBus.$emit('submit-ticket', this.$data);
+        this.name = this.description = this.dateCreated = this.timeCreated = this.label = this.priorityStatus = "";
+        this.ticketStatus = null;
       }
 
   },
