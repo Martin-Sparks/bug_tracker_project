@@ -2,7 +2,7 @@
   <div>
     <!-- <p>Navbar, footer, content, sidebar?</p> -->
     <h1>Add A New Ticket</h1>
-    <form v-on:submit.prevent>
+    <form v-on:submit.prevent="handleSubmit">
     <label for="name"> Name Of Ticket:</label>
     <input type="text" id="name" name="name" v-model="name" required/>
       <br>
@@ -35,14 +35,13 @@
 </template>
 
 <script>
-
 import { eventBus } from '@/main';
 
 export default {
   name: "CreateTicket",
   components: {
   },
-  data: function() {
+  data() {
     return {
         name: "",
         description: "",
@@ -51,10 +50,6 @@ export default {
         ticketStatus: null,
         label: "",
         priorityStatus:""
-
-
-
-
     };
   },
 
@@ -65,14 +60,9 @@ export default {
       },
 
       handleSubmit(){
-        eventBus.$emit('submit-ticket', this.data);
+        eventBus.$emit('submit-ticket', this.$data);
       }
 
-  },
-
-  computed: {
-    getTodaysDate() {
-    }
   },
 };
 
@@ -81,12 +71,3 @@ export default {
 <style>
 
 </style>
-
-//         name: "button not working",
-//         description:"Button doesn't click",
-//         dateCreated:"04062020",
-//         timeCreated:"2024",
-//         ticketStatus:"Fixed",
-//         assignedTo:"Martin",
-//         label:"Front End",
-//         priorityStatus:"Urgent"

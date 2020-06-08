@@ -28,9 +28,10 @@ export default {
 
   mounted() {
     this.fetchTickets();
-  
-    eventBus.$on("submit-ticket", (tickts) =>{
-      
+
+    eventBus.$on("submit-ticket", (ticket) => {
+      TicketService.addTicket(ticket)
+      .then(ticketWithId => this.tickets.push(ticketWithId));
     })
   },
 
@@ -38,6 +39,7 @@ export default {
     fetchTickets() {
       TicketService.getTickets().then((tickets) => (this.tickets = tickets));
     },
+
   },
 };
 </script>
