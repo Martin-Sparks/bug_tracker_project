@@ -36,3 +36,13 @@ db.bugs.insertMany([
     }
 ]);
 
+db.users.insertMany([
+
+    {
+        name: "Martin Sparks",
+        positionHeld:"Software Developer",
+        email:"Martin.sparks@CodeClan.com",
+    }
+
+])
+
