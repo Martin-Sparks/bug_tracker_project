@@ -6,7 +6,7 @@
     <input type="text" id="name" name="name" v-model="name" required/>
       <br>
     <label for="description">Description:</label>
-    <input type="text" id="description" name="description" v-model="description" required/>
+    <input type="textarea" id="description" name="description" v-model="description" rows="4" cols="50"required/>
       <br>
     <label for="dateCreated">Date Created:</label>
     <input type="date" selected="" id="dateCreated" name="dateCreated" v-model="dateCreated" required/>
