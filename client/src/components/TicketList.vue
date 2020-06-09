@@ -2,11 +2,9 @@
   <div>
     <h2>List all Bug Tickets</h2>
     <div id="tickets-wrapper">
-      <single-ticket
-        v-for="(ticket, index) in tickets"
-        :key="index"
-        :ticket="ticket"
-      />
+      <ul>
+        <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket">Ticket name: {{ticket.name}}</li>
+      </ul>
     </div>
   </div>
 </template>
