@@ -17,7 +17,7 @@ export default {
       .then(res => res.json());
   },
 
-  updateTickets(ticket) {
+  updateTicket(ticket) {
     return fetch(baseURL + ticket._id, {
       method: 'PUT',
       body: JSON.stringify(ticket),
@@ -28,7 +28,7 @@ export default {
       .then(res => res.json());
   },
 
-  deleteTickets(id) {
+  deleteTicket(id) {
     return fetch(baseURL + id, {
       method: 'DELETE'
     });

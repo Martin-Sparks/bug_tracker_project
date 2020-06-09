@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <create-ticket/>
-    <!-- <p>{{tickets}}</p> -->
-
     <ticket-list :tickets="tickets" />
   </div>
 </template>
@@ -32,6 +30,13 @@ export default {
     eventBus.$on("submit-ticket", (ticket) => {
       TicketService.addTicket(ticket)
       .then(ticketWithId => this.tickets.push(ticketWithId));
+    });
+
+    eventBus.$on("delete-ticket", (id) => {
+      TicketService.deleteTicket(id);
+      const index = this.tickets.findIndex(ticket => ticket._id === id);
+      this.tickets.splice(index, 1);
+
     })
   },
 

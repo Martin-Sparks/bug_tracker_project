@@ -1,6 +1,5 @@
 <template lang="html">
   <div>
-    <!-- <p>Navbar, footer, content, sidebar?</p> -->
     <h1>Add A New Ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
     <label for="name"> Name Of Ticket:</label>

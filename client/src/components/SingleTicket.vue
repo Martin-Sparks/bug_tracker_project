@@ -1,14 +1,22 @@
 <template>
   <div>
-    <!-- <h2>Ticket name: {{ticket.name}}</h2> -->
+    <p>Ticket name: {{ticket.name}}</p>
+    <button v-on:click="deleteTicket">Delete Ticket</button>
   </div>
 </template>
 
 <script>
 
+import { eventBus } from '@/main';
 export default {
   name: "single-ticket",
   props: ["ticket"],
+
+    methods: {
+        deleteTicket: function(){
+        eventBus.$emit('delete-ticket', this.ticket._id);
+        }
+    },
 };
 </script>
 
