@@ -54,7 +54,7 @@ export default {
 
     eventBus.$on("add-user", (user) => {
       UserService.addUser(user)
-      .then(userWithId => this.users.push(userWithId));
+      .then(userWithId => this.users.push(userWithId))
   })
 
 
@@ -65,7 +65,7 @@ export default {
       TicketService.getTickets().then((tickets) => (this.tickets = tickets));
     },
 
-    fetchUsers(){
+    fetchUsers() {
       UserService.getUsers().then((users) => (this.users = users));
     },
 
