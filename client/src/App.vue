@@ -2,7 +2,7 @@
   <div id="app">
     <nav-bar></nav-bar> 
     <create-ticket></create-ticket>
-    <ticket-list :tickets="tickets" />
+    <ticket-list :tickets="tickets" :users="users" />
     <new-user v-if="selectedPage === 'new-user'"></new-user>
   </div>
 </template>

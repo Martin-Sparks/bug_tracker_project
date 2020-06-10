@@ -7,7 +7,10 @@
       </ul>
     </div>
       <div>
-
+        <form>
+          <!-- <select v-for="(users, index) in users" :key="index" :users="users" class="user-select"> {{users}} </select>  -->
+          <select :users="users"></select> 
+            </form>
       </div>
   </div>
 </template>
@@ -17,7 +20,7 @@ import SingleTicket from "@/components/SingleTicket";
 
 export default {
   name: "TicketList",
-  props: ["tickets"],
+  props: ["tickets", "users"],
   components: {
     "single-ticket": SingleTicket,
   },
@@ -30,4 +33,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
