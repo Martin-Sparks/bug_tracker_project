@@ -19,7 +19,7 @@
 <script>
     import { eventBus } from '@/main';
 export default {
-    name: 'newUser',
+    name: 'NewUser',
     data(){
         return{
         name: "",

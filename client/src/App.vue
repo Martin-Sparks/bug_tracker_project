@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
-    <create-ticket/>
+    <nav-bar></nav-bar> 
+    <create-ticket></create-ticket>
     <ticket-list :tickets="tickets" />
-    <new-user/>
+    <new-user></new-user>
   </div>
 </template>
 
@@ -24,17 +24,21 @@ export default {
     "new-user": NewUser,
     "nav-bar": NavBar,
   },
-  
+
   data() {
     return {
       tickets: [],
       users:[],
+      selectedPage: "home",
     };
   },
 
   mounted() {
     this.fetchTickets();
     this.fetchUsers();
+
+    eventBus.$on("selected-page", (page) => {this.selectedPage = page});
+
 
     eventBus.$on("submit-ticket", (ticket) => {
       TicketService.addTicket(ticket)
@@ -52,6 +56,7 @@ export default {
       UserService.addUser(user)
       .then(userWithId => this.users.push(userWithId));
   })
+
 
   },
 
