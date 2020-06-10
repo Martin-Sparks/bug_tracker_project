@@ -5,7 +5,7 @@
     <label for="name"> Name:</label>
     <input type="text" id="name" name="name" v-model="name" required/>
       <br>
-    <label for="positionHeld">PositionHeld:</label>
+    <label for="positionHeld">Position Held:</label>
     <input type="text" id="positionHeld" name="positionHeld" v-model="positionHeld" required/>     
       <br>
       <label for="email"> Email:</label>

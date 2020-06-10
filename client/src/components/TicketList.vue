@@ -3,9 +3,12 @@
     <h2>List all Bug Tickets</h2>
     <div id="tickets-wrapper">
       <ul>
-        <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
+        <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket.id)">Ticket name: {{ticket.name}}</li>
       </ul>
     </div>
+      <div>
+
+      </div>
   </div>
 </template>
 
@@ -20,8 +23,8 @@ export default {
   },
 
   methods: {
-    selectTicket() {
-
+    selectTicket(ticket) {
+      eventBus.$emit("selected-ticket", ticket);
     }
   },
 };
