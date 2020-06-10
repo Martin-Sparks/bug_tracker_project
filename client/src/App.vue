@@ -4,6 +4,7 @@
     <create-ticket></create-ticket>
     <ticket-list :tickets="tickets" :users="users" />
     <new-user v-if="selectedPage === 'new-user'"></new-user>
+    <single-ticket v-if="selectedPage === 'single-ticket'"></single-ticket>
   </div>
 </template>
 
