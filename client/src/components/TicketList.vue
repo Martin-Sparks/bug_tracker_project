@@ -7,10 +7,15 @@
       </ul>
     </div>
       <div>
-        <form>
+        <!-- <form> -->
           <!-- <select v-for="(users, index) in users" :key="index" :users="users" class="user-select"> {{users}} </select>  -->
-          <select :users="users"></select> 
-            </form>
+            <label for="users_select">Assign a User to this ticket:</label>
+            <select v-model="selectedUser">
+              <option v-for="user in users" :value="user">{{user.name}}</option>
+            </select>
+
+          <!-- <select :users="users"></select>  -->
+            <!-- </form> -->
       </div>
   </div>
 </template>
