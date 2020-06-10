@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <nav-bar></nav-bar>
     <create-ticket/>
     <ticket-list :tickets="tickets" />
     <new-user/>
@@ -7,6 +8,7 @@
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue"
 import CreateTicket from "@/components/CreateTicket.vue";
 import TicketList from "@/components/TicketList.vue";
 import NewUser from "@/components/NewUser.vue";
@@ -20,9 +22,9 @@ export default {
     "create-ticket": CreateTicket,
     "ticket-list": TicketList,
     "new-user": NewUser,
-
-    // "single-ticket": SingleTicket,
+    "nav-bar": NavBar,
   },
+  
   data() {
     return {
       tickets: [],
