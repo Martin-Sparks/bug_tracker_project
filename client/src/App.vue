@@ -4,7 +4,7 @@
     <create-ticket></create-ticket>
     <ticket-list :tickets="tickets" :users="users" />
     <new-user v-if="selectedPage === 'new-user'"></new-user>
-    <single-ticket v-if="selectedPage === 'single-ticket'"></single-ticket>
+    <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket"></single-ticket>
   </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
       tickets: [],
       users:[],
       selectedPage: "home",
+      selectedTicket: null,
     };
   },
 
@@ -41,6 +42,7 @@ export default {
     this.fetchUsers();
 
     eventBus.$on("selected-page", (page) => {this.selectedPage = page});
+    eventBus.$on("selected-ticket", (ticket) => {this.selectedTicket = ticket});
 
     eventBus.$on("submit-ticket", (ticket) => {
       TicketService.addTicket(ticket)
