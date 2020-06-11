@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>This is a single ticket</p>
-    <p>Ticket name: {{this.ticket.name}}</p>
+    <!-- <p>Ticket name: {{this.ticket.name}}</p> -->
     <!-- <button v-on:click="deleteTicket">Delete Ticket</button> -->
     <!-- <select name="" id=""></select> -->
   </div>
