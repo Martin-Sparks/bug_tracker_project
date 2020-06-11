@@ -7,41 +7,44 @@
     <p>Ticket Status: {{this.ticket.ticketStatus}}</p>
     <p>Label: {{this.ticket.label}}</p>
     <p>Priority Status: {{this.ticket.priorityStatus}}</p>
-    <br>
-    <p>assigned To: {{this.ticket.assignedTo}}</p>
+    <p>Assigned To: {{this.ticket.assignedTo}}</p>
+    <br />
 
-    <label for="users_select">Assign a User to this ticket:</label>
-        <select>
-           <option v-for="user in users" :value="user"> {{user.name}}</option>
-        </select>
-    <br>
+    <form v-on:submit.prevent="assignUser">
+      <label for="users_select">Assign a User to this ticket:</label>
+      <select>
+        <option v-for="user in users" :user="user">{{user.name}}</option>
+      </select>
+      <input type="submit" name="assign-user" value="Assign User" />
+    </form>
+    <br />
     <button v-on:click="deleteTicket">Delete Ticket</button>
-     
   </div>
 </template>
 
 <script>
-
-import { eventBus } from '@/main';
+import { eventBus } from "@/main";
 export default {
   name: "single-ticket",
   props: ["ticket", "users"],
 
   data() {
     return {
-   
-    }
-   },
+      // user: null
+    };
+  },
 
-
-    methods: {
-        deleteTicket: function(){
-        eventBus.$emit('delete-ticket', this.ticket._id);
-        }
+  methods: {
+    deleteTicket: function() {
+      eventBus.$emit("delete-ticket", this.ticket._id);
     },
 
-  
+    assignUser: function() {
+      this.ticket.assignedTo = "dave";
+    }
+  }
 };
 </script>
 
-<style></style>
+<style>
+</style>
