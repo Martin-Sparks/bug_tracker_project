@@ -2,9 +2,9 @@
   <div id="app">
     <nav-bar></nav-bar> 
     <create-ticket></create-ticket>
-    <ticket-list :tickets="tickets" :users="users" />
+    <ticket-list :tickets="tickets"/>
     <new-user v-if="selectedPage === 'new-user'"></new-user>
-    <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket"></single-ticket>
+    <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
   </div>
 </template>
 

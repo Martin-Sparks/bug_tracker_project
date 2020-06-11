@@ -7,15 +7,6 @@
           </li>
       </ul>
     </div>
-      <div>
-  
-            <label for="users_select">Assign a User to this ticket:</label>
-            <select >
-              <option v-for="user in users" :value="user">{{user.name}}</option>
-            </select>
-
-
-      </div>
   </div>
 </template>
 
@@ -25,7 +16,7 @@ import { eventBus } from '@/main';
 
 export default {
   name: "TicketList",
-  props: ["tickets", "users"],
+  props: ["tickets"],
   components: {
     "single-ticket": SingleTicket,
 
