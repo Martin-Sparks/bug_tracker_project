@@ -9,7 +9,8 @@
       <div>
         <form>
           <!-- <select v-for="(users, index) in users" :key="index" :users="users" class="user-select"> {{users}} </select>  -->
-          <select :users="users"></select> 
+          
+          <select :users="users">Users:</select> 
             </form>
       </div>
   </div>
