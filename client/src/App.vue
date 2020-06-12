@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <create-ticket></create-ticket>
-    <ticket-list :tickets="tickets" />
+    <create-ticket v-if="selectedPage === 'create-ticket'"></create-ticket>
+    <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
   </div>
@@ -47,6 +47,8 @@ export default {
     eventBus.$on("selected-ticket", ticket => {
       this.selectedTicket = ticket;
     });
+
+
 
     eventBus.$on("submit-ticket", ticket => {
       TicketService.addTicket(ticket).then(ticketWithId =>

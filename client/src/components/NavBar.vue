@@ -46,6 +46,7 @@ li {
   font-weight: 400;
   /* text-transform: uppercase; */
   color: #555;
+  padding: 0.7rem;
 }
 li:hover{
   font-weight: 700;
