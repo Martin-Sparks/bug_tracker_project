@@ -40,8 +40,8 @@ export default {
     },
 
     assignUser: function() {
-      this.ticket.assignedTo = "dave";
-    }
+      eventBus.$emit("assign-user", this.user.name);
+    },
   }
 };
 </script>

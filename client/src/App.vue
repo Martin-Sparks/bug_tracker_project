@@ -52,6 +52,10 @@ export default {
       TicketService.addTicket(ticket).then(ticketWithId =>
         this.tickets.push(ticketWithId)
       );
+
+      eventBus.$on("assign-user", user => {
+        this.ticket.name = user
+      })
     });
 
     eventBus.$on("delete-ticket", id => {
