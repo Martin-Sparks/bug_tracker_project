@@ -37,6 +37,7 @@ export default {
   methods: {
     deleteTicket: function() {
       eventBus.$emit("delete-ticket", this.ticket._id);
+      eventBus.$emit("selected-page", 'home');
     },
 
     assignUser: function() {
