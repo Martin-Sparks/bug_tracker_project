@@ -52,13 +52,12 @@ export default {
 
     eventBus.$on("submit-ticket", ticket => {
       TicketService.addTicket(ticket).then(ticketWithId =>
-        this.tickets.push(ticketWithId)
-      );
+        this.tickets.push(ticketWithId));
+      });
 
-      eventBus.$on("assign-user", user => {
-        this.ticket.name = user
-      })
-    });
+      eventBus.$on("update-ticket", ticket => {
+        TicketService.updateTicket(ticket);
+      });
 
     eventBus.$on("delete-ticket", id => {
       TicketService.deleteTicket(id);

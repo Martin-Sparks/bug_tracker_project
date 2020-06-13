@@ -10,13 +10,15 @@
     <p>Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
 
-    <form v-on:submit.prevent="assignUser">
+    <!-- <form v-on:submit.prevent="updateTicket"> -->
       <label for="users_select">Assign a User to this ticket:</label>
-      <select>
+      <select id="user-select">
         <option v-for="user in users" :user="user">{{user.name}}</option>
       </select>
-      <input type="submit" name="assign-user" value="Assign User" />
-    </form>
+      <button v-on:click="updateTicket">Update Ticket</button>
+      
+      <!-- <input type="submit" name="assign-user" value="Assign User" /> -->
+    <!-- </form> -->
     <br />
     <button v-on:click="deleteTicket">Delete Ticket</button>
   </div>
@@ -40,10 +42,21 @@ export default {
       eventBus.$emit("selected-page", 'home');
     },
 
-    assignUser: function() {
-      eventBus.$emit("assign-user", this.user.name);
+     updateTicket: function() {
+      console.log(this.ticket.assignedTo);
+        const newUser = document.getElementById('user-select');
+        const newUserName = newUser.options[newUser.selectedIndex].value;
+        console.log(newUserName);
+        
+        
+
+      // this.ticket.assignedTo = this.user.name
+      // eventBus.$emit("update-ticket", ticket);
     },
-  }
+
+  },
+
+ 
 };
 </script>
 
