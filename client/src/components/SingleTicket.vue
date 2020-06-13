@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <select id="select_ticket"> -->
     <h2>Ticket name: {{this.ticket.name}}</h2>
     <p>Description: {{this.ticket.description}}</p>
     <p>Date Created: {{this.ticket.dateCreated}}</p>
@@ -8,7 +9,9 @@
     <p>Label: {{this.ticket.label}}</p>
     <p>Priority Status: {{this.ticket.priorityStatus}}</p>
     <p>Assigned To: {{this.ticket.assignedTo}}</p>
+    <!-- </select> -->
     <br />
+
 
     <!-- <form v-on:submit.prevent="updateTicket"> -->
       <label for="users_select">Assign a User to this ticket:</label>
@@ -43,17 +46,13 @@ export default {
     },
 
      updateTicket: function() {
-      console.log(this.ticket.assignedTo);
+      // console.log(this.ticket.assignedTo);
         const newUser = document.getElementById('user-select');
         const newUserName = newUser.options[newUser.selectedIndex].value;
         console.log(newUserName);
-        
-        
-
-      // this.ticket.assignedTo = this.user.name
-      // eventBus.$emit("update-ticket", ticket);
+        this.ticket.assignedTo = newUserName
+        eventBus.$emit('update-ticket', this.ticket)
     },
-
   },
 
  

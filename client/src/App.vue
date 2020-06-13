@@ -48,15 +48,14 @@ export default {
       this.selectedTicket = ticket;
     });
 
-
-
+  
     eventBus.$on("submit-ticket", ticket => {
       TicketService.addTicket(ticket).then(ticketWithId =>
         this.tickets.push(ticketWithId));
       });
 
       eventBus.$on("update-ticket", ticket => {
-        TicketService.updateTicket(ticket);
+        TicketService.updateTicket(ticket._id);
       });
 
     eventBus.$on("delete-ticket", id => {
@@ -72,6 +71,7 @@ export default {
     eventBus.$on("selected-ticket", ticket => {
       this.selectedTicket = ticket;
     });
+
   },
 
   methods: {
