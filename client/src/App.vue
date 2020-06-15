@@ -55,8 +55,25 @@ export default {
       });
 
       eventBus.$on("update-ticket", ticket => {
-        TicketService.updateTicket(ticket._id);
+        const updatedTicket = ticket;
+
+        TicketService.updateTicket(updatedTicket);
+        const index = this.tickets.findIndex(ticket => ticket._id === updatedTicket._id)
+        this.tickets.splice(index, 1, updatedTicket);
+        
       });
+
+    //   eventBus.$on('toggle-booking-checked-in', booking => {
+    //   const updatedBooking = {
+    //     ...booking,
+    //     checked_in: !booking.checked_in
+    //   };
+    //   BookingService.updateBooking(updatedBooking);
+    //   const index = this.bookings.findIndex(booking => booking._id === updatedBooking._id);
+    //   this.bookings.splice(index, 1, updatedBooking);
+    // });
+
+
 
     eventBus.$on("delete-ticket", id => {
       TicketService.deleteTicket(id);
