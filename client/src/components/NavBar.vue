@@ -3,7 +3,7 @@
     <h1 class="nav-logo" v-on:click="selectedPage('home')" href="#">Bug Tracker</h1>
     
     <ul class="container">
-        <li v-on:click="selectedPage('new-project')" href="#">Create Project</li>
+        <li v-on:click="selectedPage('create-project')" href="#">Create Project</li>
         <li v-on:click="selectedPage('create-ticket')" href="#">Create Ticket</li>
         <li v-on:click="selectedPage('new-user')" href="#">Create User</li>
     </ul>

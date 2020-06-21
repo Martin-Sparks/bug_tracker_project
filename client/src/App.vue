@@ -5,10 +5,13 @@
     <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
+    <create-project v-if="selectedPage === 'create-project'"></create-project>
+
   </div>
 </template>
 
 <script>
+import CreateProject from "@/components/CreateProject.vue";
 import NavBar from "@/components/NavBar.vue";
 import CreateTicket from "@/components/CreateTicket.vue";
 import TicketList from "@/components/TicketList.vue";
@@ -25,7 +28,8 @@ export default {
     "ticket-list": TicketList,
     "new-user": NewUser,
     "nav-bar": NavBar,
-    "single-ticket": SingleTicket
+    "single-ticket": SingleTicket,
+    "create-project": CreateProject,
   },
 
   data() {
@@ -62,17 +66,6 @@ export default {
         this.tickets.splice(index, 1, updatedTicket);
         
       });
-
-    //   eventBus.$on('toggle-booking-checked-in', booking => {
-    //   const updatedBooking = {
-    //     ...booking,
-    //     checked_in: !booking.checked_in
-    //   };
-    //   BookingService.updateBooking(updatedBooking);
-    //   const index = this.bookings.findIndex(booking => booking._id === updatedBooking._id);
-    //   this.bookings.splice(index, 1, updatedBooking);
-    // });
-
 
 
     eventBus.$on("delete-ticket", id => {

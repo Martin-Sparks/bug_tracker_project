@@ -12,7 +12,7 @@
 
       <label for="users_select">Assign a User to this ticket:</label>
       <select id="user-select">
-        <option v-for="user in users" :user="user">{{user.name}}</option>
+        <option v-for="user in users" :key="user">{{user.name}}</option>
       </select>
       <button v-on:click="updateTicket">Update Ticket</button>
       
@@ -29,8 +29,13 @@ export default {
 
   data() {
     return {
-      // user: null
+    
     };
+  },
+
+  computed: {
+    
+
   },
 
   methods: {
@@ -39,7 +44,7 @@ export default {
       eventBus.$emit("selected-page", 'home');
     },
 
-     updateTicket: function() {
+    updateTicket: function() {
       // console.log(this.ticket.assignedTo);
         const newUser = document.getElementById('user-select');
         const newUserName = newUser.options[newUser.selectedIndex].value;
@@ -47,6 +52,8 @@ export default {
         this.ticket.assignedTo = newUserName
         eventBus.$emit('update-ticket', this.ticket)
     },
+
+     
   },
 
  
