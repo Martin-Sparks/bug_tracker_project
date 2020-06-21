@@ -19,6 +19,7 @@ import NewUser from "@/components/NewUser.vue";
 import SingleTicket from "@/components/SingleTicket.vue";
 import TicketService from "@/services/TicketService.js";
 import UserService from "@/services/UserService.js";
+import ProjectService from "@/services/ProjectService.js";
 import { eventBus } from "@/main";
 
 export default {
@@ -81,6 +82,11 @@ export default {
     eventBus.$on("selected-ticket", ticket => {
       this.selectedTicket = ticket;
     });
+
+    eventBus.$on("submit-project", project => {
+       ProjectService.addProject(project).then(projectWithId =>
+        this.project.push(projectWithId));
+    })
 
   },
 

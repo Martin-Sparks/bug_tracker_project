@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Create New Project</h1>
-       <form v-on:submit.prevent="handleSubmit">
+       <form v-on:submit.prevent="handleSubmitProject">
     <label for="name"> Name Of Project:</label>
     <input type="text" id="name" name="name" v-model="name"/>
       <br>
@@ -23,9 +23,18 @@ export default {
     data() {
         return {
             name: "",
-            leadUser: ""
+            LeadUser: ""
         };
     },
+
+    methods: {
+
+        handleSubmitProject(){
+        eventBus.$emit('submit-project', this.$data);
+        this.name = this.LeadUser = "";
+    
+      }
+    }
 };
 </script>
 
