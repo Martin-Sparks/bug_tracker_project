@@ -26,8 +26,14 @@
         <option value="Medium">Medium</option>  
         <option value="High">High</option>  
     </select>
-      <br>  
-        <input type="submit" name="submit" value="Save" />
+<br>
+<br>
+    <label for="assignedToselect">Assign a User to this ticket:</label>
+      <select v-model="assignedToselect" id="assignedToselect">
+        <option v-for="user in users" :key="user">{{user.name}}</option>
+      </select>
+
+      <input type="submit" name="submit" value="Save" />
     </form>
   </div>
 </template>
@@ -37,6 +43,7 @@ import { eventBus } from '@/main';
 
 export default {
   name: "CreateTicket",
+  props: ["users"],
   components: {
   },
   data() {
@@ -47,7 +54,9 @@ export default {
         timeCreated:"",
         ticketStatus: null,
         label: "",
-        priorityStatus:""
+        priorityStatus:"",
+        assignedToselect: null,
+
     };
   },
 
