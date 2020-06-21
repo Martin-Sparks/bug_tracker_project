@@ -42,6 +42,18 @@ db.users.insertMany([
         name: "Martin Sparks",
         positionHeld:"Software Developer",
         email:"Martin.sparks@CodeClan.com",
+    },
+
+    {
+        name: "Dave Campbell",
+        positionHeld:"Software Developer",
+        email:"dave.campbell@CodeClan.com",
+    },
+
+    {
+        name: "Not assigned",
+        positionHeld:"None",
+        email:"notassigned@CodeClan.com",
     }
 
 ])
