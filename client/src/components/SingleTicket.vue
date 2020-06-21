@@ -7,7 +7,7 @@
     <p>Ticket Status: {{this.ticket.ticketStatus}}</p>
     <p>Label: {{this.ticket.label}}</p>
     <p>Priority Status: {{this.ticket.priorityStatus}}</p>
-    <p>Assigned To: {{this.ticket.assignedTo}}</p>
+    <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
 
       <label for="users_select">Assign a User to this ticket:</label>
@@ -29,12 +29,17 @@ export default {
 
   data() {
     return {
-    
+    assignedTo: {
+      Type: String,
+      default: null
+    }
     };
   },
 
   computed: {
-    
+    assignedTo() {
+      return this.ticket.assignedTo;
+    }
 
   },
 
