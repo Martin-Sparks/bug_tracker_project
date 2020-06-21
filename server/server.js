@@ -14,10 +14,13 @@ MongoClient.connect("mongodb://localhost:27017")
     const db = client.db("bugtracker");
     const detailsCollection = db.collection("bugs");
     const usersCollection = db.collection("users");
+    const projectsCollection = db.collection("projects");
     const detailsRouter = createRouter(detailsCollection);
     const usersRouter = createRouter(usersCollection);
+    const projectsRouter = createRouter(projectsCollection);
     app.use("/api/bugs", detailsRouter);
     app.use("/api/users", usersRouter);
+    app.use("/api/projects", projectsRouter);
   })
   .catch(console.err);
 
