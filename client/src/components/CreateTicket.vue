@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1>Add A New Ticket</h1>
+    <h1>Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
     <label for="name"> Name Of Ticket:</label>
     <input type="text" id="name" name="name" v-model="name" required/>
@@ -29,7 +29,6 @@
       <br>  
         <input type="submit" name="submit" value="Save" />
     </form>
-
   </div>
 </template>
 
