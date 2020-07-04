@@ -22,6 +22,13 @@ data(){
 
 },
 
+methods: {
+    selectProject(project) {  
+      eventBus.$emit("selected-project", project);
+      eventBus.$emit("selected-page", 'single-project');
+    }
+  },
+
 
 }
 </script>

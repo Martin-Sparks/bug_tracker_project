@@ -7,6 +7,7 @@
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
     <create-project v-if="selectedPage === 'create-project'"></create-project>
     <sidebar :projects="projects"></sidebar>
+    <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" ></single-project>
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import TicketService from "@/services/TicketService.js";
 import UserService from "@/services/UserService.js";
 import ProjectService from "@/services/ProjectService.js";
 import Sidebar from "@/components/SideBar.vue"
+import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
 
 export default {
@@ -33,6 +35,7 @@ export default {
     "single-ticket": SingleTicket,
     "create-project": CreateProject,
     "sidebar": Sidebar,
+    "single-project": SingleProject,
   },
 
   data() {
@@ -41,6 +44,7 @@ export default {
       users: [],
       projects: [],
       selectedPage: "home",
+      selectedProject: null,
       selectedTicket: null
     };
   },
@@ -55,6 +59,9 @@ export default {
     });
     eventBus.$on("selected-ticket", ticket => {
       this.selectedTicket = ticket;
+    });
+    eventBus.$on("selected-project", project => {
+      this.selectedProject = project;
     });
 
   
