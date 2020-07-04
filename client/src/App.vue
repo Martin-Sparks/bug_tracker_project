@@ -6,7 +6,7 @@
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
     <create-project v-if="selectedPage === 'create-project'"></create-project>
-
+    <sidebar :projects="projects"></sidebar>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ import SingleTicket from "@/components/SingleTicket.vue";
 import TicketService from "@/services/TicketService.js";
 import UserService from "@/services/UserService.js";
 import ProjectService from "@/services/ProjectService.js";
+import Sidebar from "@/components/SideBar.vue"
 import { eventBus } from "@/main";
 
 export default {
@@ -31,12 +32,14 @@ export default {
     "nav-bar": NavBar,
     "single-ticket": SingleTicket,
     "create-project": CreateProject,
+    "sidebar": Sidebar,
   },
 
   data() {
     return {
       tickets: [],
       users: [],
+      projects: [],
       selectedPage: "home",
       selectedTicket: null
     };
@@ -45,6 +48,7 @@ export default {
   mounted() {
     this.fetchTickets();
     this.fetchUsers();
+    this.fetchProjects();
 
     eventBus.$on("selected-page", page => {
       this.selectedPage = page;
@@ -86,7 +90,7 @@ export default {
     eventBus.$on("submit-project", project => {
        ProjectService.addProject(project).then(projectWithId =>
         this.project.push(projectWithId));
-    })
+    });
 
   },
 
@@ -97,6 +101,10 @@ export default {
 
     fetchUsers() {
       UserService.getUsers().then(users => (this.users = users));
+    },
+
+    fetchProjects() {
+      ProjectService.getProjects().then(projects => (this.projects = projects));
     }
   }
 };

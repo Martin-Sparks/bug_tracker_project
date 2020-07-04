@@ -57,11 +57,7 @@ export default {
         this.ticket.assignedTo = newUserName
         eventBus.$emit('update-ticket', this.ticket)
     },
-
-     
   },
-
- 
 };
 </script>
 
