@@ -2,6 +2,12 @@
   <div>
     <h1>Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
+
+      <label for="project">Assign to Project</label> 
+        <select v-model="assignedToProject" id="assignedToProject">
+        <option v-for="project in projects" :key="project">{{project.project_name}}</option>
+      </select>     
+       <br>
     <label for="name"> Name Of Ticket:</label>
     <input type="text" id="name" name="name" v-model="name" required/>
       <br>
@@ -40,10 +46,12 @@
 
 <script>
 import { eventBus } from '@/main';
+import ProjectService from "@/services/ProjectService.js";
+
 
 export default {
   name: "CreateTicket",
-  props: ["users"],
+  props: ["users", "projects"],
   components: {
   },
   data() {
@@ -56,6 +64,7 @@ export default {
         label: "",
         priorityStatus:"",
         assignedToselect: null,
+        assignedToProject:null,
 
     };
   },

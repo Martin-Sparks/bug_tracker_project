@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <create-ticket v-if="selectedPage === 'create-ticket'" :users="users"></create-ticket>
+    <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
     <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
@@ -96,7 +96,7 @@ export default {
 
     eventBus.$on("submit-project", project => {
        ProjectService.addProject(project).then(projectWithId =>
-        this.project.push(projectWithId));
+        this.projects.push(projectWithId));
     });
 
   },

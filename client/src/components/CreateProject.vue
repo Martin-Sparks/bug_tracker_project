@@ -6,7 +6,7 @@
     <input type="text" id="project_name" name="project_name" v-model="project_name"/>
       <br>
     <label for="leadUser">Lead User:</label>
-    <input type="textarea" id="leadUser" name="leadUser" v-model="LeadUser" rows="4" cols="50"/>
+    <input type="textarea" id="leadUser" name="leadUser" v-model="leadUser" rows="4" cols="50"/>
       <br>
       <input type="submit" name="submit" value="Save" />
     </form>
@@ -22,8 +22,8 @@ export default {
     },
     data() {
         return {
-            name: "",
-            LeadUser: ""
+          project_name: "",
+          leadUser: ""
         };
     },
 
@@ -31,7 +31,7 @@ export default {
 
         handleSubmitProject(){
         eventBus.$emit('submit-project', this.$data);
-        this.name = this.LeadUser = "";
+        this.project_name = this.leadUser = "";
     
       }
     }
