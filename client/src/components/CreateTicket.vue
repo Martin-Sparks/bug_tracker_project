@@ -5,7 +5,7 @@
 
       <label for="project">Assign to Project</label> 
         <select v-model="assignedToProject" id="assignedToProject">
-        <option v-for="project in projects" :key="project">{{project.project_name}}</option>
+        <option v-for="project in projects" :key="project" required>{{project.project_name}}</option>
       </select>     
        <br>
     <label for="name"> Name Of Ticket:</label>
