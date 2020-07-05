@@ -10,7 +10,8 @@ db.bugs.insertMany([
         ticketStatus:"Fixed",
         assignedTo:"Martin",
         label:"Front End",
-        priorityStatus:"Urgent"
+        priorityStatus:"Urgent",
+        project_name:"CodeClan Bugs"
     },
 
     {
@@ -21,18 +22,20 @@ db.bugs.insertMany([
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
-        priorityStatus:"Urgent"
+        priorityStatus:"Urgent",
+        project_name:"Bug Tracker Bugs"
     },
 
     {
-        name: "Web form not working ",
+        name: "Project not working",
         description:"Wont submit",
         dateCreated:"04062020",
         timeCreated:"2024",
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
-        priorityStatus:"Urgent"
+        priorityStatus:"Urgent",
+        project_name:"Bug Tracker Bugs"
     }
 ]);
 
@@ -63,16 +66,13 @@ db.users.insertMany([
         project_name: "CodeClan bugs",
         leadUser: "Martin Sparks",
         associatedTickets: [],
-            
         },
 
         {
-            project_name: "Printing bugs",
+            project_name: "Bug Tracker Bugs",
             leadUser: "Dave Campbell",
             associatedTickets: [],
-                
-            }
-
+        }
     ])
 
 
