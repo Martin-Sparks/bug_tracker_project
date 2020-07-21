@@ -18,9 +18,6 @@ export default {
     components: {
 
 },
-data(){
-
-},
 
 methods: {
     selectProject(project) {  

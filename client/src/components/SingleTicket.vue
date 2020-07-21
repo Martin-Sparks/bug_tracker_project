@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2>Project name: {{this.project.name}}</h2>
-    <p>Description: {{this.project.description}}</p>
-    <p>Date Created: {{this.project.dateCreated}}</p>
-    <p>Time Created: {{this.project.timeCreated}}</p>
-    <p>project Status: {{this.project.ticketStatus}}</p>
+    <h2>Ticket name: {{this.ticket.name}}</h2>
+    <p>Description: {{this.ticket.description}}</p>
+    <p>Date Created: {{this.ticket.dateCreated}}</p>
+    <p>Time Created: {{this.ticket.timeCreated}}</p>
+    <p>Ticket Status: {{this.ticket.ticketStatus}}</p>
     <p>Label: {{this.ticket.label}}</p>
     <p>Priority Status: {{this.ticket.priorityStatus}}</p>
     <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>

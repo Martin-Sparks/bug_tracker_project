@@ -2,17 +2,15 @@
   <div class="ticket-list">
     <h2>List all tickets</h2>
     <div id="tickets-wrapper">
-      <ul>
-        <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}
-          </li>
+      <button v-on:click="toggleUrgentTickets()" >Show only Urgent Tickets</button>
+      <button v-on:click="toggleMediumTickets()" >Show only Medium Tickets</button>
 
-           <h2> Filtered tickets </h2>
-          
-            <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="filterUrgentTickets(ticket)">Ticket name: {{ticket.name}}
-          </li>
+      <ul>
+        <!-- <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}
+          </li> -->
+            <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
 
       </ul>
-      <button v-on:click="filterUrgentTickets()" >Toggle Urgent Tickets</button>
 
     </div>
   </div>
@@ -27,8 +25,8 @@ export default {
   props: ["tickets"],
   data() {
     return {
-      urgentStatus: false,
-      ticketsToDisplay: []
+      urgentStatus: false
+      // ticketsToDisplay: []
     };
   },
   components: {
@@ -40,18 +38,32 @@ export default {
       eventBus.$emit("selected-ticket", ticket);
       eventBus.$emit("selected-page", "single-ticket");
     },
-    filterUrgentTickets() {
-      this.ticketsToDisplay = [];
+    toggleUrgentTickets() {
       this.urgentStatus = !this.urgentStatus;
-      if (this.urgentStatus == true)
-        return (ticketsToDisplay = this.tickets.filter(function(ticket) {
-          ticket.priorityStatus == "Urgent";
-        }));
-      else return tickets;
+    }
+  },
+
+  computed: {
+    ticketsToDisplay() {
+      if (this.urgentStatus == false) return this.tickets;
+      else
+        return this.tickets.filter(ticket => {
+          return ticket.priorityStatus == "Urgent";
+
+        });
+
+   
     }
   }
 };
 </script>
+
+
+
+
+
+
+
 
 <style scoped>
 li:hover {
