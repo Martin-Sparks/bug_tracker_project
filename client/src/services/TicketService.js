@@ -32,5 +32,11 @@ export default {
     return fetch(baseURL + id, {
       method: 'DELETE'
     });
+  },
+
+  searchTicket(query){
+    return fetch(baseURL + query)
+      .then(res => res.json());
   }
+
 };

@@ -63,6 +63,9 @@ export default {
     eventBus.$on("selected-project", project => {
       this.selectedProject = project;
     });
+    eventBus.$on("filter-urgent-tickets", priorityStatus => {
+      this.selectedPriorityStatus = priorityStatus;
+    })
 
   
     eventBus.$on("submit-ticket", ticket => {

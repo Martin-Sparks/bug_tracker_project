@@ -22,7 +22,7 @@ db.bugs.insertMany([
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
-        priorityStatus:"Urgent",
+        priorityStatus:"Low",
         project_name:"Bug Tracker Bugs"
     },
 
@@ -34,7 +34,7 @@ db.bugs.insertMany([
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
-        priorityStatus:"Urgent",
+        priorityStatus:"Medium",
         project_name:"Bug Tracker Bugs"
     }
 ]);

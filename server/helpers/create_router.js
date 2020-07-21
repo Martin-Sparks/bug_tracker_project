@@ -75,6 +75,21 @@ const createRouter = function (collection) {
       });
   })
 
+
+  router.get('/search', (req, res) => {
+    collection
+  
+      .find({req})
+      .toArray()
+      .then((docs) => res.json(docs))
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+  });
+
+
   return router;
 
 };
