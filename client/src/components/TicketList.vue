@@ -2,11 +2,10 @@
   <div class="ticket-list">
     <h2>List all tickets</h2>
     <div id="tickets-wrapper">
-      <button v-on:click="toggleUrgentTickets()" >Show only Urgent Tickets</button>
-      <button v-on:click="toggleMediumTickets()" >Show only Medium Tickets</button>
-      <button v-on:click="toggleLowTickets()" >Show only Low Tickets</button>
+      <button v-on:click="showUrgentTickets()" >Show Urgent Tickets</button>
+      <button v-on:click="showMediumTickets()" >Show Medium Tickets</button>
+      <button v-on:click="showLowTickets()" >Show Low Tickets</button>
       <button v-on:click="showTickets()" >Show All Tickets</button>
-
 
       <ul>
         <!-- <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}
@@ -28,12 +27,7 @@ export default {
   props: ["tickets"],
   data() {
     return {
-      urgentStatus: false,
-      mediumStatus: false,
-      lowStatus: false,
-      // showAllTikets: null,
       priority: null,
-      // ticketsToDisplay: []
     };
   },
   components: {
@@ -45,13 +39,13 @@ export default {
       eventBus.$emit("selected-ticket", ticket);
       eventBus.$emit("selected-page", "single-ticket");
     },
-    toggleUrgentTickets() {
+    showUrgentTickets() {
       this.priority = "Urgent";
     },
-    toggleMediumTickets() {
+    showMediumTickets() {
       this.priority = "Medium";
     },
-    toggleLowTickets() {
+    showLowTickets() {
       this.priority = "Low";
     },
     showTickets() {
