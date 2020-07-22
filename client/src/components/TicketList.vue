@@ -30,12 +30,14 @@ export default {
     return {
       urgentStatus: false,
       mediumStatus: false,
-      lowStatus: false
+      lowStatus: false,
+      // showAllTikets: null,
+      priority: null,
       // ticketsToDisplay: []
     };
   },
   components: {
-    "single-ticket": SingleTicket
+    "single-ticket": SingleTicket,
   },
 
   methods: {
@@ -44,46 +46,28 @@ export default {
       eventBus.$emit("selected-page", "single-ticket");
     },
     toggleUrgentTickets() {
-      this.urgentStatus = !this.urgentStatus;
+      this.priority = "Urgent";
     },
     toggleMediumTickets() {
-      this.mediumStatus = !this.mediumStatus;
+      this.priority = "Medium";
     },
     toggleLowTickets() {
-      this.lowStatus = !this.lowStatus;
+      this.priority = "Low";
     },
     showTickets() {
-      this.urgentStatus = false;
-      this.mediumStatus = false;
-      this.lowStatus = false;
-    }
+      this.priority = null;
+    },
   },
 
   computed: {
-    ticketsToDisplay() {
-      if (this.urgentStatus == true) {
-        this.mediumStatus = false;
-        this.lowStatus = false;
-        return this.tickets.filter(ticket => {
-          return ticket.priorityStatus == "Urgent";
+   ticketsToDisplay() {
+      if (this.priority == null) return this.tickets;
+      else
+        return this.tickets.filter((ticket) => {
+          return ticket.priorityStatus == this.priority;
         });
-      } else if (this.mediumStatus == true) {
-        this.urgentStatus = false;
-        this.lowStatus = false;
-        return this.tickets.filter(ticket => {
-          return ticket.priorityStatus == "Medium";
-        });
-      } else if (this.lowStatus == true) {
-        this.mediumStatus = false;
-        this.urgentStatus = false;
-        return this.tickets.filter(ticket => {
-          return ticket.priorityStatus == "Low";
-        });
-      } else {
-        return this.tickets;
-      }
-    }
-  }
+    },
+  },
 };
 </script>
 
