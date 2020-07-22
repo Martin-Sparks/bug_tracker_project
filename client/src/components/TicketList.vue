@@ -66,12 +66,6 @@ export default {
 </script>
 
 
-
-
-
-
-
-
 <style scoped>
 li:hover {
   cursor: pointer;
