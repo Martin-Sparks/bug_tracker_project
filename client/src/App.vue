@@ -106,6 +106,11 @@ export default {
         this.projects.push(projectWithId));
     });
 
+    eventBus.$on("add-image", imageData => {
+      console.log(imageData);
+      ImgService.addImg(imageData)
+    })
+
   },
 
   methods: {
