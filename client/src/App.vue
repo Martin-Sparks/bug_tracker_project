@@ -8,6 +8,7 @@
     <create-project v-if="selectedPage === 'create-project'"></create-project>
     <sidebar :projects="projects"></sidebar>
     <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
+    <fileupload> </fileupload>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import ProjectService from "@/services/ProjectService.js";
 import Sidebar from "@/components/SideBar.vue"
 import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
+import FileUpload from '@/components/FileUpload.vue';
 
 export default {
   name: "app",
@@ -36,6 +38,8 @@ export default {
     "create-project": CreateProject,
     "sidebar": Sidebar,
     "single-project": SingleProject,
+    "fileupload": FileUpload,
+
   },
 
   data() {
