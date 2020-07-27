@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { eventBus } from "@/main";
+
 
 export default {
     name: 'fileupload',
@@ -39,10 +41,11 @@ export default {
 
         onSubmit(e){
             console.log(e);
-            var files = e.target.files || e.dataTransfer.files;
+            // e.path[0].files[0];
+            var files = e.target[0].files;
             if (!files.length)
             return;
-            this.file = files[0]
+            this.file = files[0];
             eventBus.$emit('add-image', this.file);
         }
     },

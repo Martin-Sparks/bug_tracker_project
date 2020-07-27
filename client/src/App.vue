@@ -22,6 +22,7 @@ import SingleTicket from "@/components/SingleTicket.vue";
 import TicketService from "@/services/TicketService.js";
 import UserService from "@/services/UserService.js";
 import ProjectService from "@/services/ProjectService.js";
+import ImgService from "@/services/ImgService.js";
 import Sidebar from "@/components/SideBar.vue"
 import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
@@ -108,7 +109,7 @@ export default {
 
     eventBus.$on("add-image", imageData => {
       console.log(imageData);
-      ImgService.addImg(imageData)
+      ImgService.addImg(imageData) 
     })
 
   },
