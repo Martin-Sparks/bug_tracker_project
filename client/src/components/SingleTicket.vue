@@ -7,6 +7,7 @@
     <p>Ticket Status: {{this.ticket.ticketStatus}}</p>
     <p>Label: {{this.ticket.label}}</p>
     <p>Priority Status: {{this.ticket.priorityStatus}}</p>
+    
     <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
 
@@ -40,7 +41,6 @@ export default {
     assignedTo() {
       return this.ticket.assignedTo;
     }
-
   },
 
   methods: {
@@ -50,12 +50,11 @@ export default {
     },
 
     updateTicket: function() {
-      // console.log(this.ticket.assignedTo);
-        const newUser = document.getElementById('user-select');
-        const newUserName = newUser.options[newUser.selectedIndex].value;
-        console.log(newUserName);
-        this.ticket.assignedTo = newUserName
-        eventBus.$emit('update-ticket', this.ticket)
+      const newUser = document.getElementById('user-select');
+      const newUserName = newUser.options[newUser.selectedIndex].value;
+      console.log(newUserName);
+      this.ticket.assignedTo = newUserName
+      eventBus.$emit('update-ticket', this.ticket)
     },
   },
 };

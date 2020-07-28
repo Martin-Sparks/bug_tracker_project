@@ -8,10 +8,8 @@
                 type="file"/>
             </div>
             <div>
-                <button>Submit</button>
+                <button @click="onUpLoad">Submit</button>
             </div>
-            <div class="message"></div>
-            <h5>{{message}}</h5>
         </form>
     </div>
 </template>
@@ -25,29 +23,20 @@ export default {
     data(){
         return{
             file: null,
-            message: ""
         }
     },
 
     methods: {
-    
-        // onFileChange(e) {
-        //   console.log(e);
-        //   var files = e.target.files;
-        //   if (!files.length)
-        // return;
-        // this.file = files[0]
-        // },
-
         onSubmit(e){
-            console.log(e);
-            // e.path[0].files[0];
-            var files = e.target[0].files;
+            console.log(e.target.files[0]);
+            this.file = e.target.files[0];
+            // var files = e.target[0].files;
             if (!files.length)
             return;
-            this.file = files[0];
+            // this.file = files[0];
             eventBus.$emit('add-image', this.file);
-        }
+        },
+      
     },
 
 }
