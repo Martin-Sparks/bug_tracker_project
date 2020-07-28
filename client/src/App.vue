@@ -9,6 +9,7 @@
     <sidebar :projects="projects"></sidebar>
     <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
     <fileupload> </fileupload>
+    <filepondtest> </filepondtest>
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import Sidebar from "@/components/SideBar.vue"
 import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
 import FileUpload from '@/components/FileUpload.vue';
+import FilePondTest from '@/components/FilePondTest.vue';
 
 export default {
   name: "app",
@@ -40,6 +42,7 @@ export default {
     "sidebar": Sidebar,
     "single-project": SingleProject,
     "fileupload": FileUpload,
+    "filepondtest": FilePondTest,
 
   },
 
