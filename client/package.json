@@ -9,6 +9,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "filepond": "^4.19.0",
+    "filepond-plugin-file-encode": "^2.1.6",
     "filepond-plugin-file-validate-type": "^1.2.5",
     "filepond-plugin-image-preview": "^4.6.4",
     "vue": "^2.6.11",

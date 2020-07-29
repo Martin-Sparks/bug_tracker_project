@@ -7,8 +7,9 @@
         label-idle="Drop files here..."
         v-bind:allow-multiple="true"
         accepted-file-types="image/jpeg, image/png"
-        server="/api"
+        server='http://localhost:3000/api/img/'
         v-bind:files="myFiles"
+        allowFileEncode=true
         v-on:init="handleFilePondInit"/>
  
   </div>
@@ -17,12 +18,15 @@
 <script>
 // Import Vue FilePond
 import vueFilePond from 'vue-filepond';
+
  
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
+
  
 // Import FilePond plugins
 // Please note that you need to install these plugins separately
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
  
 // Import image preview plugin styles
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
@@ -37,12 +41,12 @@ const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImage
 export default {
     name: 'filepondtest',
     data: function() {
-        return { myFiles: ['cat.jpeg'] };
+        return { myFiles: null };
     },
     methods: {
         handleFilePondInit: function() {
             console.log('FilePond has initialized');
- 
+                    this.$refs.pond.getFiles();
             // FilePond instance methods are available on `this.$refs.pond`
         }
     },
