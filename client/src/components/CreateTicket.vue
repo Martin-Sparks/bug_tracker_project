@@ -50,9 +50,9 @@
         v-model="ticketStatus"
         required
       />
-      <br />
+      <!-- <br />
       <label for="label">Label</label>
-      <input type="text" id="label" name="label" v-model="label" required />
+      <input type="text" id="label" name="label" v-model="label" required /> -->
       <br />
       <label for="priorityStatus">Priority Status</label>
       <select v-model="priorityStatus">
