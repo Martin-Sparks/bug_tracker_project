@@ -4,7 +4,7 @@
     <form v-on:submit.prevent="handleSubmit">
       <label for="project">Assign to Project</label>
       <select v-model="assignedToProject" id="assignedToProject">
-        <option v-for="project in projects" :key="project" required>{{
+        <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
       </select>
@@ -61,11 +61,11 @@
         <option value="High">High</option>
       </select>
       <br />
-      <filepondtest v-model="photoUpload"> </filepondtest>
+      <!-- <filepondtest v-model="photoUpload"> </filepondtest> -->
       <br />
       <label for="assignedToselect">Assign a User to this ticket:</label>
       <select v-model="assignedToselect" id="assignedToselect">
-        <option v-for="user in users" :key="user">{{ user.name }}</option>
+        <option v-for="user in users" :key="users.name">{{ user.name }}</option>
       </select>
       <input type="submit" name="submit" value="Save" />
     </form>
@@ -81,7 +81,7 @@ export default {
   name: "CreateTicket",
   props: ["users", "projects"],
   components: {
-    "filepondtest": FilePondTest,
+    filepondtest: FilePondTest,
   },
   data() {
     return {
@@ -99,7 +99,7 @@ export default {
   },
 
   methods: {
-    getTodaysDate: function() {
+    getTodaysDate: function () {
       today = new date().toISOString().substr(0, 10);
       document.querySelector("#dateCreated").value = today;
     },
