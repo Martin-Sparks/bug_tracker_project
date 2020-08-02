@@ -13,7 +13,7 @@
 
     <label for="users_select">Assign User:</label>
     <select id="user-select">
-      <option v-for="user in users" :key="user">{{user.name}}</option>
+      <option v-for="user in users" :key="user.name">{{user.name}}</option>
     </select>
     <!-- <button v-on:click="updateTicket">Update Ticket</button> -->
 
@@ -42,11 +42,11 @@ import { eventBus } from "@/main";
       };
     },
 
-    computed: {
-      assignedTo() {
-        return this.ticket.assignedTo;
-      },
-    },
+    // computed: {
+    //   assignedToUser() {
+    //     return this.ticket.assignedTo;
+    //   },
+    // },
 
     methods: {
       deleteTicket: function () {
