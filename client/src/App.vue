@@ -6,7 +6,7 @@
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
     <create-project v-if="selectedPage === 'create-project'"></create-project>
-    <sidebar :projects="projects"></sidebar>
+    <sidebar v-if="selectedPage === 'home'" :projects="projects"></sidebar>
     <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
     <!-- <fileupload> </fileupload> -->
   </div>
