@@ -16,9 +16,29 @@
 
     <p>Date Created: {{this.ticket.dateCreated}}</p>
     <p>Time Created: {{this.ticket.timeCreated}}</p>
-    <p>Ticket Status: {{this.ticket.ticketStatus}}</p>
+    <!-- <p>Ticket Status: {{this.ticket.ticketStatus}}</p> -->
+
+    <br>
+    <label for="status">Ticket Status:</label>
+    <input
+      type="text"
+      id="ticket-status"
+      name="status"
+      v-model="assignedTicketStatus.default"
+      required
+    />
+<br>
     <!-- <p>Label: {{this.ticket.label}}</p> -->
-    <p>Priority Status: {{this.ticket.priorityStatus}}</p>
+    <!-- <p>Priority Status: {{this.ticket.priorityStatus}}</p> -->
+    <label for="priority">Priority Status:</label>
+    <input
+      type="text"
+      id="ticket-priority"
+      name="priority"
+      v-model="assignedTicketPriority.default"
+      required
+    />
+
     <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
 
@@ -49,6 +69,10 @@ export default {
         Type: String,
         default: this.ticket.name,
       },
+      assignedTicketStatus: {
+        Type: String,
+        default: this.ticket.ticketStatus,
+      },
       assignedTicketDescription: {
         Type: String,
         default: this.ticket.description,
@@ -56,6 +80,10 @@ export default {
       assignedTo: {
         Type: String,
         default: this.ticket.assignedTo,
+      },
+      assignedTicketPriority: {
+        Type: String,
+        default: this.ticket.priorityStatus,
       },
       ticketUpdated: false,
     };
@@ -82,6 +110,16 @@ export default {
       const newDescription = document.getElementById("ticket-description");
       const newTicketDiscription = newDescription.value;
       this.ticket.descrtiption = newTicketDiscription;
+
+      // update ticket status
+      const newStatus = document.getElementById("ticket-status");
+      const newTicketStatus = newStatus.value;
+      this.ticket.ticketStatus = newTicketStatus;
+
+      // update ticket priority
+      const newPriority = document.getElementById("ticket-priority");
+      const newTicketPriority = newPriority.value;
+      this.ticket.priorityStatus = newTicketPriority;
 
       //emit to the event bus on app
       eventBus.$emit("update-ticket", this.ticket);
