@@ -3,10 +3,16 @@
     <label for="name">Name Of Ticket:</label>
     <input type="text" id="ticket-name" name="name" v-model="assignedTicketName.default" required />
     <!-- <h2>Ticket name: {{this.ticket.name}}</h2> -->
-    <br>
+    <br />
     <!-- <p>Description: {{this.ticket.description}}</p> -->
     <label for="description">Description:</label>
-    <input type="text" id="ticket-description" name="description" v-model="assignedTicketDescription.default" required />
+    <input
+      type="text"
+      id="ticket-description"
+      name="description"
+      v-model="assignedTicketDescription.default"
+      required
+    />
 
     <p>Date Created: {{this.ticket.dateCreated}}</p>
     <p>Time Created: {{this.ticket.timeCreated}}</p>
@@ -40,26 +46,20 @@ export default {
   data() {
     return {
       assignedTicketName: {
-        Type:String,
+        Type: String,
         default: this.ticket.name,
       },
       assignedTicketDescription: {
-        Type:String,
+        Type: String,
         default: this.ticket.description,
       },
       assignedTo: {
-        Type:String,
+        Type: String,
         default: this.ticket.assignedTo,
       },
       ticketUpdated: false,
     };
   },
-
-  // computed: {
-  //   assignedToUser() {
-  //     return this.ticket.assignedTo;
-  //   },
-  // },
 
   methods: {
     deleteTicket: function () {
