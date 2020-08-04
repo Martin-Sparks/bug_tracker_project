@@ -48,6 +48,11 @@
     </select>
     <!-- <button v-on:click="updateTicket">Update Ticket</button> -->
 
+    <br>
+
+        <p>Project: {{this.ticket.project_name}}</p>
+
+
     <br />
     <button v-on:click="deleteTicket">Delete Ticket</button>
     <button v-on:click="updateTicket">Update Ticket</button>
