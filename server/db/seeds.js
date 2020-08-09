@@ -63,7 +63,7 @@ db.users.insertMany([
 
     db.projects.insertMany([
         {
-        project_name: "CodeClan bugs",
+        project_name: "CodeClan Bugs",
         leadUser: "Martin Sparks",
         associatedTickets: [],
         },

@@ -13,11 +13,9 @@
       v-model="assignedTicketDescription.default"
       required
     />
-
     <p>Date Created: {{this.ticket.dateCreated}}</p>
     <p>Time Created: {{this.ticket.timeCreated}}</p>
     <!-- <p>Ticket Status: {{this.ticket.ticketStatus}}</p> -->
-
     <br>
     <label for="status">Ticket Status:</label>
     <input
@@ -27,7 +25,7 @@
       v-model="assignedTicketStatus.default"
       required
     />
-<br>
+    <br>
     <!-- <p>Label: {{this.ticket.label}}</p> -->
     <!-- <p>Priority Status: {{this.ticket.priorityStatus}}</p> -->
     <label for="priority">Priority Status:</label>
@@ -38,21 +36,15 @@
       v-model="assignedTicketPriority.default"
       required
     />
-
     <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
-
     <label for="users_select">Assign User:</label>
     <select id="user-select">
       <option v-for="user in users" :key="user.name">{{user.name}}</option>
     </select>
     <!-- <button v-on:click="updateTicket">Update Ticket</button> -->
-
     <br>
-
-        <p>Project: {{this.ticket.project_name}}</p>
-
-
+    <p>Project: {{this.ticket.project_name}}</p>
     <br />
     <button v-on:click="deleteTicket">Delete Ticket</button>
     <button v-on:click="updateTicket">Update Ticket</button>
@@ -142,4 +134,5 @@ export default {
 </script>
 
 <style>
+
 </style>
