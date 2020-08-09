@@ -8,8 +8,7 @@
       <button v-on:click="showTickets()" >Show All Tickets</button>
 
       <ul>
-        <!-- <li v-for="(ticket, index) in tickets" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}
-          </li> -->
+       
             <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
 
       </ul>

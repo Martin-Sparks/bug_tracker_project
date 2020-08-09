@@ -3,7 +3,7 @@
     <h1>Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
       <label for="project">Assign to Project</label>
-      <select v-model="assignedToProject" id="assignedToProject">
+      <select v-model="project_name" id="project_name">
         <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
@@ -93,8 +93,7 @@ export default {
       label: "",
       priorityStatus: "",
       assignedToselect: null,
-      assignedToProject: null,
-      photoUpload: null,
+      project_name: null,
     };
   },
 
@@ -109,6 +108,7 @@ export default {
       this.name = this.description = this.dateCreated = this.timeCreated = this.label = this.priorityStatus =
         "";
       this.ticketStatus = null;
+      eventBus.$emit("selected-page", 'home');
     },
   },
 };
