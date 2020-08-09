@@ -50,9 +50,7 @@
         v-model="ticketStatus"
         required
       />
-      <!-- <br />
-      <label for="label">Label</label>
-      <input type="text" id="label" name="label" v-model="label" required /> -->
+
       <br />
       <label for="priorityStatus">Priority Status</label>
       <select v-model="priorityStatus">
@@ -61,7 +59,7 @@
         <option value="High">High</option>
       </select>
       <br />
-      <!-- <filepondtest v-model="photoUpload"> </filepondtest> -->
+
       <br />
       <label for="assignedToselect">Assign a User to this ticket:</label>
       <select v-model="assignedToselect" id="assignedToselect">
