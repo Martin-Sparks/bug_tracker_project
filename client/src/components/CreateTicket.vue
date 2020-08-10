@@ -34,7 +34,7 @@
           required>
         </b-datepicker>
       </b-field>
-      
+
         <b-field grouped group-multiline>
             <div class="control">
                 <b-switch v-model="formatAmPm">AM/PM</b-switch>

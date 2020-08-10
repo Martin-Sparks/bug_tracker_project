@@ -1,12 +1,10 @@
 <template>
   <div>
-    <label for="name">Name Of Ticket:</label>
-    <input type="text" id="ticket-name" name="name" v-model="assignedTicketName.default" required />
-    <!-- <h2>Ticket name: {{this.ticket.name}}</h2> -->
+    <b-field label for="name">Name Of Ticket:</b-field>
+    <b-input type="text" id="ticket-name" name="name" v-model="assignedTicketName.default" required />
     <br />
-    <!-- <p>Description: {{this.ticket.description}}</p> -->
-    <label for="description">Description:</label>
-    <input
+    <b-field label for="description">Description:</b-field>
+    <b-input
       type="text"
       id="ticket-description"
       name="description"
@@ -15,10 +13,9 @@
     />
     <p>Date Created: {{this.ticket.dateCreated}}</p>
     <p>Time Created: {{this.ticket.timeCreated}}</p>
-    <!-- <p>Ticket Status: {{this.ticket.ticketStatus}}</p> -->
     <br>
     <label for="status">Ticket Status:</label>
-    <input
+    <b-input
       type="text"
       id="ticket-status"
       name="status"
@@ -26,10 +23,8 @@
       required
     />
     <br>
-    <!-- <p>Label: {{this.ticket.label}}</p> -->
-    <!-- <p>Priority Status: {{this.ticket.priorityStatus}}</p> -->
-    <label for="priority">Priority Status:</label>
-    <input
+    <b-field label for="priority">Priority Status:</b-field>
+    <b-input
       type="text"
       id="ticket-priority"
       name="priority"
@@ -38,16 +33,16 @@
     />
     <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
-    <label for="users_select">Assign User:</label>
-    <select id="user-select">
+    <b-field label for="users_select">Assign User:</b-field>
+    <b-select id="user-select">
       <option v-for="user in users" :key="user.name">{{user.name}}</option>
-    </select>
-    <!-- <button v-on:click="updateTicket">Update Ticket</button> -->
+    </b-select>
     <br>
     <p>Project: {{this.ticket.project_name}}</p>
     <br />
-    <button v-on:click="deleteTicket">Delete Ticket</button>
-    <button v-on:click="updateTicket">Update Ticket</button>
+
+    <b-button v-on:click="deleteTicket">Delete Ticket</b-button>
+    <b-button v-on:click="updateTicket">Update Ticket</b-button>
     <br />
 
     <h2 class="ticketUpdated" v-if="ticketUpdated">Ticket updated</h2>
