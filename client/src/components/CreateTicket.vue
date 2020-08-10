@@ -4,23 +4,24 @@
     <form v-on:submit.prevent="handleSubmit">
 
       <b-field label for="project">Assign to Project</b-field>
-      <b-select v-model="project_name" id="project_name">
+      <b-select v-model="project_name" id="project_name" placeholder="Select project...">
         <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
       </b-select>
       <br />
       <b-field label for="name"> Name Of Ticket:</b-field>
-      <input type="text" id="name" name="name" v-model="name" required />
+      <b-input type="text" id="name" name="name" v-model="name" required placeholder="Ticket name..."/>
       <br />
       <b-field  for="description">Description:</b-field>
-      <input
+      <b-input
         type="textarea"
         id="description"
         name="description"
         v-model="description"
         rows="4"
         cols="50"
+        placeholder="Enter your description..."
         required
       />
       <br />
@@ -40,7 +41,7 @@
         v-model="dateCreated"
         required
       /> -->
-   <template>
+  
     <section>
         <b-field grouped group-multiline>
             <div class="control">
@@ -61,11 +62,10 @@
             </b-timepicker>
         </b-field>
     </section>
-</template>
 
       <br />
       <label for="ticketStatus">Ticket Status:</label>
-      <input
+      <b-input
         type=""
         id="ticketStatus"
         name="ticketStatus"
@@ -74,19 +74,19 @@
       />
 
       <br />
-      <label for="priorityStatus">Priority Status</label>
-      <select v-model="priorityStatus">
+      <b-field for="priorityStatus">Priority Status</b-field>
+      <b-select v-model="priorityStatus">
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
         <option value="High">High</option>
-      </select>
+      </b-select>
       <br />
 
       <br />
-      <label for="assignedToselect">Assign a User to this ticket:</label>
-      <select v-model="assignedToselect" id="assignedToselect">
+      <b-field label for="assignedToselect">Assign a User to this ticket:</b-field>
+      <b-select v-model="assignedToselect" id="assignedToselect" placeholder="Assigned to...">
         <option v-for="user in users" :key="users.name">{{ user.name }}</option>
-      </select>
+      </b-select>
       <input type="submit" name="submit" value="Save" />
     </form>
   </div>
