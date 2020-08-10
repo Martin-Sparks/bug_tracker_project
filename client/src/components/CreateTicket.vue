@@ -9,10 +9,10 @@
           project.project_name
         }}</option>
       </b-select>
-      <br />
+      
       <b-field label for="name"> Name Of Ticket:</b-field>
       <b-input type="text" id="name" name="name" v-model="name" required placeholder="Ticket name..."/>
-      <br />
+    
       <b-field  for="description">Description:</b-field>
       <b-input
         type="textarea"
@@ -24,7 +24,7 @@
         placeholder="Enter your description..."
         required
       />
-      <br />
+    
       <b-field label="Select a date...">
         <b-datepicker
           placeholder="Type or select a date..."
@@ -34,15 +34,7 @@
           required>
         </b-datepicker>
       </b-field>
-        <!-- type="date"
-        selected=""
-        id="dateCreated"
-        name="dateCreated"
-        v-model="dateCreated"
-        required
-      /> -->
-  
-    <section>
+      
         <b-field grouped group-multiline>
             <div class="control">
                 <b-switch v-model="formatAmPm">AM/PM</b-switch>
@@ -61,9 +53,7 @@
                 v-model="timeCreated">
             </b-timepicker>
         </b-field>
-    </section>
-
-      <br />
+     
       <label for="ticketStatus">Ticket Status:</label>
       <b-input
         type=""
@@ -73,21 +63,24 @@
         required
       />
 
-      <br />
+     
       <b-field for="priorityStatus">Priority Status</b-field>
       <b-select v-model="priorityStatus">
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </b-select>
-      <br />
-
-      <br />
+     
       <b-field label for="assignedToselect">Assign a User to this ticket:</b-field>
       <b-select v-model="assignedToselect" id="assignedToselect" placeholder="Assigned to...">
         <option v-for="user in users" :key="users.name">{{ user.name }}</option>
       </b-select>
-      <input type="submit" name="submit" value="Save" />
+      <div class="buttons">
+
+        <b-button tag="input"
+                native-type="submit"
+                value="Submit ticket" />
+      </div>
     </form>
   </div>
 </template>
