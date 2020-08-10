@@ -2,17 +2,18 @@
   <div>
     <h1>Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
-      <label for="project">Assign to Project</label>
-      <select v-model="project_name" id="project_name">
+
+      <b-field label for="project">Assign to Project</b-field>
+      <b-select v-model="project_name" id="project_name">
         <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
-      </select>
+      </b-select>
       <br />
-      <label for="name"> Name Of Ticket:</label>
+      <b-field label for="name"> Name Of Ticket:</b-field>
       <input type="text" id="name" name="name" v-model="name" required />
       <br />
-      <label for="description">Description:</label>
+      <b-field  for="description">Description:</b-field>
       <input
         type="textarea"
         id="description"
@@ -23,24 +24,45 @@
         required
       />
       <br />
-      <label for="dateCreated">Date Created:</label>
-      <input
-        type="date"
+      <b-field label="Select a date...">
+        <b-datepicker
+          placeholder="Type or select a date..."
+          icon="calendar-today"
+          editable
+          v-model="dateCreated"
+          required>
+        </b-datepicker>
+      </b-field>
+        <!-- type="date"
         selected=""
         id="dateCreated"
         name="dateCreated"
         v-model="dateCreated"
         required
-      />
-      <br />
-      <label for="timeCreated">Time Created:</label>
-      <input
-        type="time"
-        id="timeCreated"
-        name="timeCreated"
-        v-model="timeCreated"
-        required
-      />
+      /> -->
+   <template>
+    <section>
+        <b-field grouped group-multiline>
+            <div class="control">
+                <b-switch v-model="formatAmPm">AM/PM</b-switch>
+            </div>
+            <div class="control">
+                <b-switch v-model="enableSeconds">Enable seconds</b-switch>
+            </div>
+        </b-field>
+        <b-field label="Select time">
+            <b-timepicker
+                rounded
+                placeholder="Click to select..."
+                icon="clock"
+                :enable-seconds="enableSeconds"
+                :hour-format="format"
+                v-model="timeCreated">
+            </b-timepicker>
+        </b-field>
+    </section>
+</template>
+
       <br />
       <label for="ticketStatus">Ticket Status:</label>
       <input
@@ -92,8 +114,16 @@ export default {
       priorityStatus: "",
       assignedToselect: null,
       project_name: null,
+      formatAmPm: false,
+      enableSeconds: false,
     };
   },
+  computed: {
+    format() {
+      return this.formatAmPm ? '12' : '24'
+    }
+  },
+
 
   methods: {
     getTodaysDate: function () {
