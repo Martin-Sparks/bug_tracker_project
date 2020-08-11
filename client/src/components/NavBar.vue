@@ -1,13 +1,25 @@
 <template>
-  <div class="nav-bar-container">
-    <h1 class="nav-logo" v-on:click="selectedPage('home')" href="#">Bug Tracker</h1>
+  <b-navbar>
     
-    <ul class="container">
-        <li v-on:click="selectedPage('create-project')" href="#">Create Project</li>
-        <li v-on:click="selectedPage('create-ticket')" href="#">Create Ticket</li>
-        <li v-on:click="selectedPage('new-user')" href="#">Create User</li>
-    </ul>
-  </div>
+    <template slot="brand">
+      <b-navbar-item>
+        <p v-on:click="selectedPage('home')" href="#">Bug Tracker</p>
+      </b-navbar-item>
+    </template>
+
+    <template slot="start">
+      <b-navbar-item v-on:click="selectedPage('create-ticket')" href="#">Create Ticket</b-navbar-item>
+    </template>
+
+    <template slot="end">
+            <b-navbar-item tag="div">
+                    <b-navbar-item v-on:click="selectedPage('create-project')" href="#">Create Project</b-navbar-item>
+
+                <b-navbar-item v-on:click="selectedPage('new-user')" href="#">Create User</b-navbar-item>
+            </b-navbar-item>
+        </template>
+
+  </b-navbar>
 </template>
 
 <script>

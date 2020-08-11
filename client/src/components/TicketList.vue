@@ -1,19 +1,17 @@
 <template lang="html">
-  <div class="ticket-list">
+  <div class="content">
     <h2>List all tickets</h2>
-    <div id="tickets-wrapper">
-      <button v-on:click="showUrgentTickets()" >Show Urgent Tickets</button>
-      <button v-on:click="showMediumTickets()" >Show Medium Tickets</button>
-      <button v-on:click="showLowTickets()" >Show Low Tickets</button>
-      <button v-on:click="showTickets()" >Show All Tickets</button>
+   
+      <b-button v-on:click="showUrgentTickets()" >Show Urgent Tickets</b-button>
+      <b-button v-on:click="showMediumTickets()" >Show Medium Tickets</b-button>
+      <b-button v-on:click="showLowTickets()" >Show Low Tickets</b-button>
+      <b-button v-on:click="showTickets()" >Show All Tickets</b-button>
 
       <ul>
-       
-            <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
-
+        <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
       </ul>
 
-    </div>
+    
   </div>
 </template>
 

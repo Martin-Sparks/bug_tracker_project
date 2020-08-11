@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="content">
     <nav-bar></nav-bar>
     <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
     <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
