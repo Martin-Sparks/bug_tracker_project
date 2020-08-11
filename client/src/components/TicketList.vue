@@ -7,9 +7,14 @@
         <b-button class="is-success is-outlined" v-on:click="showLowTickets()" >Show Low Tickets</b-button>
         <b-button class="is-danger is-outlined" v-on:click="showTickets()" >Show All Tickets</b-button>
       </div>
-      <ul>
-        <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
+
+      
+      <ul class="">
+        <li class="" v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket"  v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name }} </li>
       </ul>
+
+     
+      
 
     
   </div>
@@ -84,5 +89,24 @@ li {
 
 .ticket-link {
   padding: 0.5rem 0;
+}
+
+li{
+  /* background-color: aqua; */
+  margin: 0.25em 0.25em 1em;
+  padding: 0.5em 0.5em 0.5em 1em;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+li:nth-child(even){
+  background-color:white;
+    /* box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) */
+}
+
+li:hover {
+  background: linear-gradient(to top, #ced4da 0%, #767676 100%);
+  color:white;
+  font-weight: 700;
 }
 </style>
