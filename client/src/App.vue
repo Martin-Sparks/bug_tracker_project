@@ -2,13 +2,14 @@
   <div id="content">
     <nav-bar></nav-bar>
     <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
+    <priority-list v-if="selectedPage === 'home'" :tickets="tickets"/>
     <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
     <new-user v-if="selectedPage === 'new-user'"></new-user>
     <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
     <create-project v-if="selectedPage === 'create-project'"></create-project>
     <sidebar v-if="selectedPage === 'home'" :projects="projects"></sidebar>
     <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
-    <!-- <fileupload> </fileupload> -->
+    
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import CreateProject from "@/components/CreateProject.vue";
 import NavBar from "@/components/NavBar.vue";
 import CreateTicket from "@/components/CreateTicket.vue";
 import TicketList from "@/components/TicketList.vue";
+import PriorityList from "@/components/PriorityList.vue";
 import NewUser from "@/components/NewUser.vue";
 import SingleTicket from "@/components/SingleTicket.vue";
 import TicketService from "@/services/TicketService.js";
@@ -34,6 +36,7 @@ export default {
   components: {
     "create-ticket": CreateTicket,
     "ticket-list": TicketList,
+    "priority-list": PriorityList,
     "new-user": NewUser,
     "nav-bar": NavBar,
     "single-ticket": SingleTicket,
