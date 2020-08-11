@@ -1,12 +1,6 @@
 <template lang="html">
   <div class="section">
     <h2>Priority Tickets</h2>
-   
-      <!-- <b-button class="is-primary" v-on:click="showUrgentTickets()" >Show Urgent Tickets</b-button>
-      <b-button v-on:click="showMediumTickets()" >Show Medium Tickets</b-button>
-      <b-button v-on:click="showLowTickets()" >Show Low Tickets</b-button>
-      <b-button class="is-danger" v-on:click="showTickets()" >Show All Tickets</b-button> -->
-
       <ul>
         <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" class="ticket-link" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
       </ul>
