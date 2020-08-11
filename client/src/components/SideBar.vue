@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section">
       <h1>Sidebar</h1>
       <recent-projects :projects="projects"></recent-projects>
   </div>
