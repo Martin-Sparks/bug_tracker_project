@@ -31,6 +31,7 @@ import { eventBus } from "@/main";
 import FileUpload from '@/components/FileUpload.vue';
 import FilePondTest from '@/components/FilePondTest.vue';
 
+
 export default {
   name: "app",
   components: {
@@ -136,12 +137,70 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+
+@import "~bulma/sass/utilities/_all";
+
+$primary: yellow;
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+
+li:hover {
+  cursor: pointer;
+}
+
+.ticket-list {
+  padding: 1rem;
+  margin: 0;
+}
+
+#tickets-wrapper ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0;
+}
+
+.ticket-link {
+  padding: 0.5rem 0;
+}
+
+li{
+  /* background-color: aqua; */
+  margin: 0.25em 0.25em 1em;
+  padding: 0.5em 0.5em 0.5em 1em;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+li:nth-child(even){
+  background-color:white;
+    /* box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) */
+}
+
+li:hover {
+  background: linear-gradient(to top, #ced4da 0%, #555B6E 100%);
+  color:white;
+  font-weight: 700;
+}
+
+.panel {
+  background-color: $primary;
+}
 
 body {
 font-family: 'Roboto', sans-serif;
 }
 
-
+// @import "~bulma";
+@import "~buefy/src/scss/buefy";
 
 </style>
