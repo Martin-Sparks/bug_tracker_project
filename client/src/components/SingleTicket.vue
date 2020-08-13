@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section panel">
     <b-field label for="name">Name Of Ticket:</b-field>
     <b-input type="text" id="ticket-name" name="name" v-model="assignedTicketName.default" required />
     <br />

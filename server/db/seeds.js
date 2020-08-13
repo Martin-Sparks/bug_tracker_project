@@ -5,8 +5,8 @@ db.bugs.insertMany([
     {
         name: "button not working",
         description:"Button doesn't click",
-        dateCreated:"04062020",
-        timeCreated:"2024",
+        dateCreated:"2020-08-15T23:00:00.000Z",
+        timeCreated:"2020-08-13T10:16:00.000Z",
         ticketStatus:"Fixed",
         assignedTo:"Martin",
         label:"Front End",
@@ -17,8 +17,8 @@ db.bugs.insertMany([
     {
         name: "Web form not working ",
         description:"Wont submit",
-        dateCreated:"04062020",
-        timeCreated:"2024",
+        dateCreated:"2020-08-14T23:00:00.000Z",
+        timeCreated:"2020-08-13T10:14:00.000Z",
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
@@ -29,8 +29,8 @@ db.bugs.insertMany([
     {
         name: "Project not working",
         description:"Wont submit",
-        dateCreated:"04062020",
-        timeCreated:"2024",
+        dateCreated:"2020-08-13T23:00:00.000Z",
+        timeCreated:"2020-08-13T10:15:00.000Z",
         ticketStatus:"Fixed",
         assignedTo:"Dave",
         label:"Front End",
