@@ -1,15 +1,20 @@
 <template>
-  <div id="content">
-    <nav-bar></nav-bar>
-    <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
-    <priority-list v-if="selectedPage === 'home'" :tickets="tickets"/>
-    <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
-    <new-user v-if="selectedPage === 'new-user'"></new-user>
-    <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
-    <create-project v-if="selectedPage === 'create-project'"></create-project>
-    <sidebar v-if="selectedPage === 'home'" :projects="projects"></sidebar>
-    <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
+  <div class="section">
+    <nav-bar class="container is-fluid"></nav-bar>
+
+    <div class="container is-fluid tile is-ancestor">
+        <sidebar class="tile" :projects="projects"></sidebar>
     
+      <div class="tile">
+        <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
+        <priority-list v-if="selectedPage === 'home'" :tickets="tickets"/>
+        <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
+        <new-user v-if="selectedPage === 'new-user'"></new-user>
+        <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
+        <create-project v-if="selectedPage === 'create-project'"></create-project>
+        <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
+      </div>
+  </div>
   </div>
 </template>
 
