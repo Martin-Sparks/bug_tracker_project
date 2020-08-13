@@ -141,10 +141,14 @@ export default {
 
 @import "~bulma/sass/utilities/_all";
 
-$primary: yellow;
+$primary: #BEE3DB;
 $primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
-$twitter-invert: findColorInvert($twitter);
+$secondary: #ddd;
+$secondary-invert: findColorInvert($secondary);
+$button-primary: #FFD6BA;
+$button-primary-invert: findColorInvert($button-primary);
+$button-is-danger: #FF3860;
+$button-is-danger-invert: #00C79F;
 
 // Import Bulma and Buefy styles
 @import "~bulma";
@@ -174,11 +178,14 @@ li {
 }
 
 li{
-  /* background-color: aqua; */
   margin: 0.25em 0.25em 1em;
   padding: 0.5em 0.5em 0.5em 1em;
   border-radius: 6px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+li:nth-child(odd){
+  background-color: $secondary; 
 }
 
 li:nth-child(even){
@@ -199,6 +206,21 @@ li:hover {
 body {
 font-family: 'Roboto', sans-serif;
 }
+
+.button.is-success {
+  background-color: $button-primary;
+  color: #000;
+}
+
+.button.is-success:hover {
+  background-color: $button-primary-invert;
+}
+
+.button.is-danger:hover{
+  background-color: $button-is-danger-invert;
+  color: #000;
+}
+
 
 // @import "~bulma";
 @import "~buefy/src/scss/buefy";

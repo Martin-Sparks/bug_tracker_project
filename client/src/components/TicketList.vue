@@ -2,10 +2,10 @@
   <div class="section panel">
     <h2>List all tickets</h2>
       <div class="buttons">
-        <b-button class="is-success is-outlined" v-on:click="showUrgentTickets()" >Show Urgent Tickets</b-button>
-        <b-button class="is-success is-outlined" v-on:click="showMediumTickets()" >Show Medium Tickets</b-button>
-        <b-button class="is-success is-outlined" v-on:click="showLowTickets()" >Show Low Tickets</b-button>
-        <b-button class="is-danger is-outlined" v-on:click="showTickets()" >Show All Tickets</b-button>
+        <b-button class="is-success" v-on:click="showUrgentTickets()" >Show Urgent Tickets</b-button>
+        <b-button class="is-success" v-on:click="showMediumTickets()" >Show Medium Tickets</b-button>
+        <b-button class="is-success" v-on:click="showLowTickets()" >Show Low Tickets</b-button>
+        <b-button class="is-danger" v-on:click="showTickets()" >Show All Tickets</b-button>
       </div>
 
       
