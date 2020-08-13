@@ -9,17 +9,17 @@
 
     <template slot="start">
       <b-navbar-item>
-        <b-button class="is-primary is-outlined" v-on:click="selectedPage('create-ticket')" href="#">Create Ticket</b-button>
+        <b-button class="is-danger" v-on:click="selectedPage('create-ticket')" href="#">Create Ticket</b-button>
       </b-navbar-item>
     </template>
 
     <template slot="end">
       <b-navbar-item>
-        <b-button class="is-success is-outlined" v-on:click="selectedPage('create-project')" href="#">Create Project</b-button>
+        <b-button class="is-success" v-on:click="selectedPage('create-project')" href="#">Create Project</b-button>
       </b-navbar-item>
 
       <b-navbar-item>
-        <b-button class="is-success is-outlined" v-on:click="selectedPage('new-user')" href="#">Create User</b-button>
+        <b-button class="is-success" v-on:click="selectedPage('new-user')" href="#">Create User</b-button>
       </b-navbar-item>
     </template>
 

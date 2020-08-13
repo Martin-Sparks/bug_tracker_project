@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="section panel">
     <h1>Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
 
@@ -68,7 +68,7 @@
       <b-select v-model="priorityStatus">
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
-        <option value="High">High</option>
+        <option value="Urgent">Urgent</option>
       </b-select>
      
       <b-field label for="assignedToselect">Assign a User to this ticket:</b-field>

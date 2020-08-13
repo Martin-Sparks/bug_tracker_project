@@ -148,6 +148,7 @@ $secondary-invert: findColorInvert($secondary);
 $button-primary: #FFD6BA;
 $button-primary-invert: findColorInvert($button-primary);
 $button-is-danger: #FF3860;
+$button-is-success:  #FFD6BA;
 $button-is-danger-invert: #00C79F;
 
 // Import Bulma and Buefy styles
