@@ -2,19 +2,34 @@
   <div class="section">
     <nav-bar class="container is-fluid"></nav-bar>
 
-    <div class="container is-fluid tile is-ancestor">
-        <sidebar class="tile" :projects="projects"></sidebar>
-    
-      <div class="tile">
+    <div class="container tile is-12">
+      <sidebar class="tile is-3 is-parent" :projects="projects"></sidebar>
+
+      <div class="tile is-vertical is-parent">
         <create-ticket v-if="selectedPage === 'create-ticket'" :projects="projects" :users="users"></create-ticket>
-        <priority-list v-if="selectedPage === 'home'" :tickets="tickets"/>
-        <ticket-list v-if="selectedPage === 'home'" :tickets="tickets"/>
-        <new-user v-if="selectedPage === 'new-user'"></new-user>
-        <single-ticket v-if="selectedPage === 'single-ticket'" :ticket="selectedTicket" :users="users"></single-ticket>
         <create-project v-if="selectedPage === 'create-project'"></create-project>
-        <single-project v-if="selectedPage === 'single-project'" :project="selectedProject" :tickets="tickets" ></single-project>
+        <new-user v-if="selectedPage === 'new-user'"></new-user>
+        <single-ticket
+          v-if="selectedPage === 'single-ticket'"
+          :ticket="selectedTicket"
+          :users="users"
+        ></single-ticket>
+
+        <single-project
+          v-if="selectedPage === 'single-project'"
+          :project="selectedProject"
+          :tickets="tickets"
+        ></single-project>
+
+        <div class="tile subtitle is-12 is-child">
+          <priority-list v-if="selectedPage === 'home'" :tickets="tickets" />
+        </div>
+
+        <div class="tile subtitle is-12 is-child">
+          <ticket-list v-if="selectedPage === 'home'" :tickets="tickets" />
+        </div>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
@@ -30,12 +45,11 @@ import TicketService from "@/services/TicketService.js";
 import UserService from "@/services/UserService.js";
 import ProjectService from "@/services/ProjectService.js";
 import ImgService from "@/services/ImgService.js";
-import Sidebar from "@/components/SideBar.vue"
+import Sidebar from "@/components/SideBar.vue";
 import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
-import FileUpload from '@/components/FileUpload.vue';
-import FilePondTest from '@/components/FilePondTest.vue';
-
+import FileUpload from "@/components/FileUpload.vue";
+import FilePondTest from "@/components/FilePondTest.vue";
 
 export default {
   name: "app",
@@ -47,11 +61,10 @@ export default {
     "nav-bar": NavBar,
     "single-ticket": SingleTicket,
     "create-project": CreateProject,
-    "sidebar": Sidebar,
+    sidebar: Sidebar,
     "single-project": SingleProject,
-    "fileupload": FileUpload,
-    "filepondtest": FilePondTest,
-
+    fileupload: FileUpload,
+    filepondtest: FilePondTest,
   },
 
   data() {
@@ -61,7 +74,7 @@ export default {
       projects: [],
       selectedPage: "home",
       selectedProject: null,
-      selectedTicket: null
+      selectedTicket: null,
     };
   },
 
@@ -70,96 +83,98 @@ export default {
     this.fetchUsers();
     this.fetchProjects();
 
-    eventBus.$on("selected-page", page => {
+    eventBus.$on("selected-page", (page) => {
       this.selectedPage = page;
     });
-    eventBus.$on("selected-ticket", ticket => {
+    eventBus.$on("selected-ticket", (ticket) => {
       this.selectedTicket = ticket;
     });
-    eventBus.$on("selected-project", project => {
+    eventBus.$on("selected-project", (project) => {
       this.selectedProject = project;
     });
-    eventBus.$on("filter-urgent-tickets", priorityStatus => {
+    eventBus.$on("filter-urgent-tickets", (priorityStatus) => {
       this.selectedPriorityStatus = priorityStatus;
-    })
+    });
 
-  
-    eventBus.$on("submit-ticket", ticket => {
-      TicketService.addTicket(ticket).then(ticketWithId =>
-        this.tickets.push(ticketWithId));
-      });
+    eventBus.$on("submit-ticket", (ticket) => {
+      TicketService.addTicket(ticket).then((ticketWithId) =>
+        this.tickets.push(ticketWithId)
+      );
+    });
 
-      eventBus.$on("update-ticket", ticket => {
-        const updatedTicket = ticket;
+    eventBus.$on("update-ticket", (ticket) => {
+      const updatedTicket = ticket;
 
-        TicketService.updateTicket(updatedTicket);
-        const index = this.tickets.findIndex(ticket => ticket._id === updatedTicket._id)
-        this.tickets.splice(index, 1, updatedTicket);
-        
-      });
+      TicketService.updateTicket(updatedTicket);
+      const index = this.tickets.findIndex(
+        (ticket) => ticket._id === updatedTicket._id
+      );
+      this.tickets.splice(index, 1, updatedTicket);
+    });
 
-
-    eventBus.$on("delete-ticket", id => {
+    eventBus.$on("delete-ticket", (id) => {
       TicketService.deleteTicket(id);
-      const index = this.tickets.findIndex(ticket => ticket._id === id);
+      const index = this.tickets.findIndex((ticket) => ticket._id === id);
       this.tickets.splice(index, 1);
     });
 
-    eventBus.$on("add-user", user => {
-      UserService.addUser(user).then(userWithId => this.users.push(userWithId));
+    eventBus.$on("add-user", (user) => {
+      UserService.addUser(user).then((userWithId) =>
+        this.users.push(userWithId)
+      );
     });
 
-    eventBus.$on("selected-ticket", ticket => {
+    eventBus.$on("selected-ticket", (ticket) => {
       this.selectedTicket = ticket;
     });
 
-    eventBus.$on("submit-project", project => {
-       ProjectService.addProject(project).then(projectWithId =>
-        this.projects.push(projectWithId));
+    eventBus.$on("submit-project", (project) => {
+      ProjectService.addProject(project).then((projectWithId) =>
+        this.projects.push(projectWithId)
+      );
     });
 
-    eventBus.$on("add-image", imageData => {
+    eventBus.$on("add-image", (imageData) => {
       console.log(imageData);
-      ImgService.addImg(imageData) 
-    })
-
+      ImgService.addImg(imageData);
+    });
   },
 
   methods: {
     fetchTickets() {
-      TicketService.getTickets().then(tickets => (this.tickets = tickets));
+      TicketService.getTickets().then((tickets) => (this.tickets = tickets));
     },
 
     fetchUsers() {
-      UserService.getUsers().then(users => (this.users = users));
+      UserService.getUsers().then((users) => (this.users = users));
     },
 
     fetchProjects() {
-      ProjectService.getProjects().then(projects => (this.projects = projects));
-    }
-  }
+      ProjectService.getProjects().then(
+        (projects) => (this.projects = projects)
+      );
+    },
+  },
 };
 </script>
 
 
 <style lang="scss">
-
 @import "~bulma/sass/utilities/_all";
 
-$primary: #BEE3DB;
+$primary: #bee3db;
 $primary-invert: findColorInvert($primary);
 $secondary: #ddd;
 $secondary-invert: findColorInvert($secondary);
-$button-primary: #FFD6BA;
+$button-primary: #ffd6ba;
 $button-primary-invert: findColorInvert($button-primary);
-$button-is-danger: #FF3860;
-$button-is-success:  #FFD6BA;
-$button-is-danger-invert: #00C79F;
+$button-is-danger: #ff3860;
+$button-is-success: #ffd6ba;
+$button-is-danger-invert: #00c79f;
 
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
-
 
 li:hover {
   cursor: pointer;
@@ -183,25 +198,26 @@ li {
   padding: 0.5rem 0;
 }
 
-li{
+li {
   margin: 0.25em 0.25em 1em;
   padding: 0.5em 0.5em 0.5em 1em;
   border-radius: 6px;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
 }
 
-li:nth-child(odd){
-  background-color: $secondary; 
+li:nth-child(odd) {
+  background-color: $secondary;
 }
 
-li:nth-child(even){
-  background-color:white;
-    /* box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) */
+li:nth-child(even) {
+  background-color: white;
+  /* box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) */
 }
 
 li:hover {
-  background: linear-gradient(to top, #ced4da 0%, #555B6E 100%);
-  color:white;
+  background: linear-gradient(to top, #ced4da 0%, #555b6e 100%);
+  color: white;
   font-weight: 700;
 }
 
@@ -210,7 +226,7 @@ li:hover {
 }
 
 body {
-font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .button.is-success {
@@ -222,13 +238,11 @@ font-family: 'Roboto', sans-serif;
   background-color: $button-primary-invert;
 }
 
-.button.is-danger:hover{
+.button.is-danger:hover {
   background-color: $button-is-danger-invert;
   color: #000;
 }
 
-
 // @import "~bulma";
 @import "~buefy/src/scss/buefy";
-
 </style>
