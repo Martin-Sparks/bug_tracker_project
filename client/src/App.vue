@@ -1,6 +1,6 @@
 <template>
-  <div class="section">
-    <nav-bar class="container is-fluid"></nav-bar>
+  <div class="section app-style app-height">
+    <nav-bar class="container is-fluid app-style"></nav-bar>
 
     <div class="container tile is-12">
       <sidebar class="tile is-3 is-parent" :projects="projects"></sidebar>
@@ -30,6 +30,7 @@
         </div>
       </div>
     </div>
+    <footer-main class="container is-fluid app-style footer-style"></footer-main>
   </div>
 </template>
 
@@ -50,6 +51,7 @@ import SingleProject from "@/components/SingleProject.vue";
 import { eventBus } from "@/main";
 import FileUpload from "@/components/FileUpload.vue";
 import FilePondTest from "@/components/FilePondTest.vue";
+import FooterMain from "@/components/FooterMain.vue";
 
 export default {
   name: "app",
@@ -65,6 +67,7 @@ export default {
     "single-project": SingleProject,
     fileupload: FileUpload,
     filepondtest: FilePondTest,
+    "footer-main": FooterMain,
   },
 
   data() {
@@ -243,6 +246,20 @@ body {
   color: #000;
 }
 
+.app-style {
+  background-color: lightslategrey;
+}
+.app-height {
+  height: 100hv;
+}
+
+a.navbar-item:hover {
+  background-color: lightslategrey;
+}
+
+.footer-style {
+  margin: 3vh 0 0 1vh;
+}
 // @import "~bulma";
 @import "~buefy/src/scss/buefy";
 </style>
