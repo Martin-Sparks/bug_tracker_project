@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="section panel">
-    <h2>List all tickets</h2>
+    <h2 class="title is-4">List all tickets</h2>
       <div class="buttons">
         <b-button class="is-success" v-on:click="showUrgentTickets()" >Show Urgent Tickets</b-button>
         <b-button class="is-success" v-on:click="showMediumTickets()" >Show Medium Tickets</b-button>

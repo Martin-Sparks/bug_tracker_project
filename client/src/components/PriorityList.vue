@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="section panel">
-    <h2>Priority Tickets</h2>
+    <h2 class="title is-4" >Priority Tickets</h2>
       <ul>
         <li v-for="(ticket, index) in ticketsToDisplay" :key="index" :ticket="ticket" v-on:click="selectTicket(ticket)">Ticket name: {{ticket.name}}</li>
       </ul>

@@ -1,19 +1,19 @@
 <template lang="html">
   <div class="section panel">
-    <h1>Create a new ticket</h1>
+    <h1 class="title is-4">Create a new ticket</h1>
     <form v-on:submit.prevent="handleSubmit">
 
-      <b-field label for="project">Assign to Project</b-field>
+      <b-field class="subtitle is-5" label for="project">Assign to Project</b-field>
       <b-select v-model="project_name" id="project_name" placeholder="Select project...">
         <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
       </b-select>
       
-      <b-field label for="name"> Name Of Ticket:</b-field>
+      <b-field class="subtitle is-5" label for="name"> Name Of Ticket:</b-field>
       <b-input type="text" id="name" name="name" v-model="name" required placeholder="Ticket name..."/>
     
-      <b-field  for="description">Description:</b-field>
+      <b-field class="subtitle is-5" for="description">Description:</b-field>
       <b-input
         type="textarea"
         id="description"
@@ -25,7 +25,7 @@
         required
       />
     
-      <b-field label="Select a date...">
+      <b-field class="subtitle is-5" label="Select a date...">
         <b-datepicker
           placeholder="Type or select a date..."
           icon="calendar-today"
@@ -43,7 +43,7 @@
                 <b-switch v-model="enableSeconds">Enable seconds</b-switch>
             </div>
         </b-field>
-        <b-field label="Select time">
+        <b-field class="subtitle is-5"label="Select time">
             <b-timepicker
                 rounded
                 placeholder="Click to select..."
@@ -54,7 +54,7 @@
             </b-timepicker>
         </b-field>
      
-      <label for="ticketStatus">Ticket Status:</label>
+      <label class="subtitle is-5" for="ticketStatus">Ticket Status:</label>
       <b-input
         type=""
         id="ticketStatus"
@@ -64,20 +64,21 @@
       />
 
      
-      <b-field for="priorityStatus">Priority Status</b-field>
-      <b-select v-model="priorityStatus">
+      <b-field class="subtitle is-5" for="priorityStatus">Priority Status</b-field>
+      <b-select v-model="priorityStatus" placeholder="Low...">
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
         <option value="Urgent">Urgent</option>
       </b-select>
      
-      <b-field label for="assignedToselect">Assign a User to this ticket:</b-field>
+      <b-field class="subtitle is-5"label for="assignedToselect">Assign a User to this ticket:</b-field>
       <b-select v-model="assignedToselect" id="assignedToselect" placeholder="Assigned to...">
         <option v-for="user in users" :key="users.name">{{ user.name }}</option>
       </b-select>
+      <br>
       <div class="buttons">
 
-        <b-button tag="input"
+        <b-button class="is-danger" tag="input"
                 native-type="submit"
                 value="Submit ticket" />
       </div>

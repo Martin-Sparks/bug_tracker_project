@@ -209,11 +209,11 @@ li {
     0 0 0 1px rgba(10, 10, 10, 0.02);
 }
 
-li:nth-child(odd) {
+li:nth-child(even) {
   background-color: $secondary;
 }
 
-li:nth-child(even) {
+li:nth-child(odd) {
   background-color: white;
   /* box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02) */
 }
@@ -254,6 +254,21 @@ body {
 }
 
 a.navbar-item:hover {
+  background-color: lightslategrey;
+     
+
+}
+
+a.navbar-item:focus {
+  background-color: lightslategrey;
+   color:#000;
+}
+
+.button.is-success:focus {
+  color:#000;
+}
+
+a.navbar-item:focus-within {
   background-color: lightslategrey;
 }
 

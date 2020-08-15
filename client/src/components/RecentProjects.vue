@@ -1,9 +1,9 @@
 <template>
   <div>
-      <h2>List all projects</h2>
+      <h1 class="subtitle is-4">Recent Projects</h1>
       <div id="project-wrapper">
         <ul>
-        <li v-for="(project, index) in projects" :key="index" :projects="projects" class="project-link" v-on:click="selectProject(project)">Project name: {{project.project_name}}</li>
+        <li v-for="(project, index) in projects" :key="index" :projects="projects" class="project-link" v-on:click="selectProject(project)">Project: {{project.project_name}}</li>
         </ul>
       </div>
   </div>

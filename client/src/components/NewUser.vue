@@ -1,16 +1,21 @@
 <template>
   <div>
-    <h1>Create User</h1>
+    <h1 class="title is-4">Create User</h1>
     <form v-on:submit.prevent="addUser">
-    <b-field label for="name"> Name:</b-field>
+    <b-field class="subtitle is-5" label for="name"> Name:</b-field>
     <b-input type="text" id="name" name="name" v-model="name" required/>
-    <b-field label for="positionHeld">Position Held:</b-field>
+    <br>
+    <b-field class="subtitle is-5" label for="positionHeld">Position Held:</b-field>
     <b-input type="text" id="positionHeld" name="positionHeld" v-model="positionHeld" required/>
-    <b-field label for="email"> Email:</b-field>
+    <br>
+    <b-field class="subtitle is-5" label for="email"> Email:</b-field>
     <b-input type="email" id="email" name="email" v-model="email" required/>
-    <b-button tag="input"
-      native-type="submit"
-      value="Create user" />
+    
+    <br>
+      <b-button class="is-danger" tag="input"
+        native-type="submit"
+        value="Create user" />
+    
     </form>
   </div>
 </template>
