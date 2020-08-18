@@ -13,6 +13,8 @@
                 native-type="submit"
                 value="Create project" />
       </form>
+        <div class="is-hidden-mobile fill-screen-fix"></div>
+
    </div>
 </template>
 

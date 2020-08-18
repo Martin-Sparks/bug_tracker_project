@@ -275,6 +275,11 @@ a.navbar-item:focus-within {
 .footer-style {
   margin: 3vh 0 0 1vh;
 }
+
+.fill-screen-fix {
+    margin: 300px 0 0 0;
+}
+
 // @import "~bulma";
 @import "~buefy/src/scss/buefy";
 </style>

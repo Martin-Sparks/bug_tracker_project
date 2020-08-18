@@ -3,7 +3,7 @@
     
     <template slot="brand">
       <b-navbar-item>
-        <p v-on:click="selectedPage('home')" href="#">Bug Tracker</p>
+        <p class="title is-4" v-on:click="selectedPage('home')" href="#">Bug Tracker</p>
       </b-navbar-item>
     </template>
 

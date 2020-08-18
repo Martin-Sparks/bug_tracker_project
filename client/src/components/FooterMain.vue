@@ -1,6 +1,7 @@
 <template>
   
   <div class="content has-text-centered">
+    
     <p>
       <strong>Bug Tracker</strong> by MS and DC. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content

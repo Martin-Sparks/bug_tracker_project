@@ -1,9 +1,9 @@
 <template>
   <div class="section panel">
-    <b-field label for="name">Name Of Ticket:</b-field>
+    <b-field class="subtitle is-5" label for="name">Name Of Ticket:</b-field>
     <b-input type="text" id="ticket-name" name="name" v-model="assignedTicketName.default" required />
     <br />
-    <b-field label for="description">Description:</b-field>
+    <b-field class="subtitle is-5" label for="description">Description:</b-field>
     <b-input
       type="text"
       id="ticket-description"
@@ -11,10 +11,10 @@
       v-model="assignedTicketDescription.default"
       required
     />
-    <p>Date Created: {{this.ticket.dateCreated}}</p>
-    <p>Time Created: {{this.ticket.timeCreated}}</p>
+    <p class="subtitle is-5" >Date Created: {{this.ticket.dateCreated}}</p>
+    <p class="subtitle is-5" >Time Created: {{this.ticket.timeCreated}}</p>
     <br>
-    <label for="status">Ticket Status:</label>
+    <label class="subtitle is-5" for="status">Ticket Status:</label>
     <b-input
       type="text"
       id="ticket-status"
@@ -23,7 +23,7 @@
       required
     />
     <br>
-    <b-field label for="priority">Priority Status:</b-field>
+    <b-field class="subtitle is-5" label for="priority">Priority Status:</b-field>
     <b-input
       type="text"
       id="ticket-priority"
@@ -31,21 +31,21 @@
       v-model="assignedTicketPriority.default"
       required
     />
-    <p :class="assignedTo">Assigned To: {{this.ticket.assignedTo}}</p>
+    <p :class="assignedTo" class="subtitle is-5">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
-    <b-field label for="users_select">Assign User:</b-field>
+    <b-field label for="users_select" class="subtitle is-5" >Assign User:</b-field>
     <b-select id="user-select">
       <option v-for="user in users" :key="user.name">{{user.name}}</option>
     </b-select>
     <br>
-    <p>Project: {{this.ticket.project_name}}</p>
+    <p class="subtitle is-5">Project: {{this.ticket.project_name}}</p>
     <br />
-
-    <b-button v-on:click="deleteTicket">Delete Ticket</b-button>
-    <b-button v-on:click="updateTicket">Update Ticket</b-button>
-    <br />
-
-    <h2 class="ticketUpdated" v-if="ticketUpdated">Ticket updated</h2>
+    
+    <div class="buttons">
+      <b-button class="is-success" v-on:click="deleteTicket">Delete Ticket</b-button>
+      <b-button class="is-danger" v-on:click="updateTicket">Update Ticket</b-button>
+    </div>
+    <h2 class="ticketUpdated subtitle is-5" v-if="ticketUpdated" >Ticket updated</h2>
   </div>
 </template>
 

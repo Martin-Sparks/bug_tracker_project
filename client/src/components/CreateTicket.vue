@@ -4,15 +4,17 @@
     <form v-on:submit.prevent="handleSubmit">
 
       <b-field class="subtitle is-5" label for="project">Assign to Project</b-field>
+      
       <b-select v-model="project_name" id="project_name" placeholder="Select project...">
         <option v-for="project in projects" :key="projects.project_name" required>{{
           project.project_name
         }}</option>
       </b-select>
+      <br>
       
       <b-field class="subtitle is-5" label for="name"> Name Of Ticket:</b-field>
       <b-input type="text" id="name" name="name" v-model="name" required placeholder="Ticket name..."/>
-    
+      <br>
       <b-field class="subtitle is-5" for="description">Description:</b-field>
       <b-input
         type="textarea"
@@ -26,7 +28,7 @@
       />
     
       <b-field class="subtitle is-5" label="Select a date...">
-        <b-datepicker
+        <b-datepicker class="subtitle is-5"
           placeholder="Type or select a date..."
           icon="calendar-today"
           editable
@@ -53,8 +55,9 @@
                 v-model="timeCreated">
             </b-timepicker>
         </b-field>
-     
+     <br>
       <label class="subtitle is-5" for="ticketStatus">Ticket Status:</label>
+      <br>
       <b-input
         type=""
         id="ticketStatus"
@@ -62,6 +65,7 @@
         v-model="ticketStatus"
         required
       />
+      <br>
 
      
       <b-field class="subtitle is-5" for="priorityStatus">Priority Status</b-field>
@@ -70,7 +74,7 @@
         <option value="Medium">Medium</option>
         <option value="Urgent">Urgent</option>
       </b-select>
-     
+     <br>
       <b-field class="subtitle is-5"label for="assignedToselect">Assign a User to this ticket:</b-field>
       <b-select v-model="assignedToselect" id="assignedToselect" placeholder="Assigned to...">
         <option v-for="user in users" :key="users.name">{{ user.name }}</option>
@@ -80,7 +84,7 @@
 
         <b-button class="is-danger" tag="input"
                 native-type="submit"
-                value="Submit ticket" />
+                value="Submit Ticket" />
       </div>
     </form>
   </div>

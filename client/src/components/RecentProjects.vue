@@ -6,6 +6,8 @@
         <li v-for="(project, index) in projects" :key="index" :projects="projects" class="project-link" v-on:click="selectProject(project)">Project: {{project.project_name}}</li>
         </ul>
       </div>
+        <div class="is-hidden-mobile fill-screen-fix"></div>
+
   </div>
 </template>
 

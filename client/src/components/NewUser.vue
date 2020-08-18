@@ -17,6 +17,9 @@
         value="Create user" />
     
     </form>
+
+  <div class="is-hidden-mobile fill-screen-fix"></div>
+
   </div>
 </template>
 
