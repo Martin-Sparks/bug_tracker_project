@@ -23,14 +23,24 @@
       required
     />
     <br>
-    <b-field class="subtitle is-5" label for="priority">Priority Status:</b-field>
+<b-field class="subtitle is-5" for="priorityStatus">Priority Status</b-field>
+      <b-select v-model = assignedTicketPriority.default >
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="Urgent">Urgent</option>
+      </b-select>
+
+
+
+    <!-- <b-field class="subtitle is-5" label for="priority">Priority Status:</b-field>
     <b-input
       type="text"
       id="ticket-priority"
       name="priority"
       v-model="assignedTicketPriority.default"
       required
-    />
+    /> -->
+    <br>
     <p :class="assignedTo" class="subtitle is-5">Assigned To: {{this.ticket.assignedTo}}</p>
     <br />
     <b-field label for="users_select" class="subtitle is-5" >Assign User:</b-field>
