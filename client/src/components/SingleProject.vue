@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <h2>Project name: {{this.project.project_name}}</h2>
-    <p>Lead user: {{this.project.leadUser}}</p>
+  <div class="section panel">
+    <h2 class="title is-4">Project name: {{this.project.project_name}}</h2>
+    <p class="title is-5">Lead user: {{this.project.leadUser}}</p>
 
     <ul>
       <li
         v-for="(ticket, index) in ticketsToDisplay"
         :key="index"
         :ticket="ticket"
-        class="ticket-link"
         v-on:click="selectTicket(ticket)"
       >Ticket name: {{ticket.name}}</li>
     </ul>

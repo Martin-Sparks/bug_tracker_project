@@ -38,12 +38,12 @@
       </b-field>
 
         <b-field grouped group-multiline>
-            <div class="control">
-                <b-switch v-model="formatAmPm">AM/PM</b-switch>
-            </div>
-            <div class="control">
-                <b-switch v-model="enableSeconds">Enable seconds</b-switch>
-            </div>
+            <!-- <div class="control">
+                <b-switch v-model="formatAmPm">AM/PM</b-switch> -->
+            <!-- </div> -->
+            <!-- <div class="control">
+                <b-switch v-model="enableSeconds">Enable seconds</b-switch> -->
+            <!-- </div> -->
         </b-field>
         <b-field class="subtitle is-5"label="Select time">
             <b-timepicker
@@ -67,7 +67,7 @@
       />
       <br>
 
-     
+        <br>    
       <b-field class="subtitle is-5" for="priorityStatus">Priority Status</b-field>
       <b-select v-model="priorityStatus" placeholder="Low...">
         <option value="Low">Low</option>
