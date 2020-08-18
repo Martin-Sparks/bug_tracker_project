@@ -9,10 +9,10 @@
           project.project_name
         }}</option>
       </b-select>
-      
+      <br />
       <b-field class="subtitle is-5" label for="name"> Name Of Ticket:</b-field>
       <b-input type="text" id="name" name="name" v-model="name" required placeholder="Ticket name..."/>
-    
+    <br />
       <b-field class="subtitle is-5" for="description">Description:</b-field>
       <b-input
         type="textarea"
@@ -36,12 +36,12 @@
       </b-field>
 
         <b-field grouped group-multiline>
-            <div class="control">
-                <b-switch v-model="formatAmPm">AM/PM</b-switch>
-            </div>
-            <div class="control">
-                <b-switch v-model="enableSeconds">Enable seconds</b-switch>
-            </div>
+            <!-- <div class="control">
+                <b-switch v-model="formatAmPm">AM/PM</b-switch> -->
+            <!-- </div> -->
+            <!-- <div class="control">
+                <b-switch v-model="enableSeconds">Enable seconds</b-switch> -->
+            <!-- </div> -->
         </b-field>
         <b-field class="subtitle is-5"label="Select time">
             <b-timepicker
@@ -55,6 +55,7 @@
         </b-field>
      
       <label class="subtitle is-5" for="ticketStatus">Ticket Status:</label>
+      <br> 
       <b-input
         type=""
         id="ticketStatus"
@@ -63,7 +64,7 @@
         required
       />
 
-     
+        <br>    
       <b-field class="subtitle is-5" for="priorityStatus">Priority Status</b-field>
       <b-select v-model="priorityStatus" placeholder="Low...">
         <option value="Low">Low</option>
@@ -71,6 +72,8 @@
         <option value="Urgent">Urgent</option>
       </b-select>
      
+     <br>
+
       <b-field class="subtitle is-5"label for="assignedToselect">Assign a User to this ticket:</b-field>
       <b-select v-model="assignedToselect" id="assignedToselect" placeholder="Assigned to...">
         <option v-for="user in users" :key="users.name">{{ user.name }}</option>
