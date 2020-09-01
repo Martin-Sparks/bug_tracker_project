@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 
 // const fs = require('fs');
 
-
 // const upload = multer({
 //   dest: './uploads',
 // });
@@ -20,7 +19,10 @@ app.use(bodyParser.json());
 //   res.json({ file: req.file });
 // });
 
-MongoClient.connect("mongodb://localhost:27017")
+// MongoClient.connect("mongodb://localhost:27017")
+MongoClient.connect(
+  "mongodb+srv://MartinSparks:wQQcHdp2ahPXxya@bugtracker.4axyv.mongodb.net/Bugtracker?retryWrites=true&w=majority"
+)
   .then((client) => {
     const db = client.db("bugtracker");
 
@@ -31,7 +33,7 @@ MongoClient.connect("mongodb://localhost:27017")
     const detailsCollection = db.collection("bugs");
     const usersCollection = db.collection("users");
     const projectsCollection = db.collection("projects");
-    const imgCollection = db.collection("img")
+    const imgCollection = db.collection("img");
     const detailsRouter = createRouter(detailsCollection);
     const usersRouter = createRouter(usersCollection);
     const projectsRouter = createRouter(projectsCollection);

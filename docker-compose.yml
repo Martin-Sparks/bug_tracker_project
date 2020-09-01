@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  client:
+    container_name: client
+    build:
+      context: client
+    depends_on:
+      - server
+    ports: ["80:80"]
+    networks:
+      - client
+      - server
+  server:
+    container_name: server
+    build:
+      context: server
+    ports: ["3000:3000"]
+    networks:
+      - client
+
+networks:
+  client:
+  server:

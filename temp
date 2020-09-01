@@ -1,0 +1,17 @@
+CD in to client folder
+
+heroku login
+
+heroku container:login
+
+heroku create
+
+use that random Creating app... done, ⬢ shielded-cliffs-34933
+
+heroku container:push web --app shielded-cliffs-34933
+
+heroku container:release web --app shielded-cliffs-34933
+
+"shielded-cliffs-34933" was created as an app on heroku
+
+Dockerfile must be initial cap
