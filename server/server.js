@@ -9,18 +9,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-// const fs = require('fs');
-
-
-// const upload = multer({
-//   dest: './uploads',
-// });
-
-// app.post('/upload', upload.single('file'), (req, res) => {
-//   res.json({ file: req.file });
-// });
-
-MongoClient.connect("mongodb://localhost:27017")
+MongoClient.connect("mongodb://mongodb:27017")
   .then((client) => {
     const db = client.db("bugtracker");
 

@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api/bugs/';
+const baseURL = 'mongodb://mongoDB/app/api/bugs/';
 
 export default {
   getTickets() {

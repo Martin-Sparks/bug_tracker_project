@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api/projects/';
+const baseURL = 'mongodb://mongoDB/app/api/projects/';
 
 export default {
   getProjects() {
